@@ -1,5 +1,5 @@
 
 
-export interface IOperation<T> {
+export interface Operation<T> {
   execute(obj: T): void;
 }
