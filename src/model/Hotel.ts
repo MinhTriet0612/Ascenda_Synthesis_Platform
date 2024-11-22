@@ -1,3 +1,6 @@
+import { Amentity } from "./Amentity";
+import { ImageStore } from "./ImageStore";
+import { Location } from "./Location";
 
 export class Hotel {
   id: String;
@@ -10,26 +13,3 @@ export class Hotel {
   booking_conditions: String[];
 }
 
-export interface Location {
-  lat: number;
-  lng: number;
-  address: String;
-  city: String;
-  country: String;
-}
-
-export interface Amentity {
-  general: String[];
-  room: String[];
-}
-
-export interface ImageStore {
-  rooms: Image[];
-  site: Image[];
-  amenities: Image[];
-}
-
-export interface Image {
-  link: String;
-  description: String;
-}

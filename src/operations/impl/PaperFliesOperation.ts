@@ -7,6 +7,7 @@ export class PaperFliesOperation implements Operation<Map<String, Hotel>> {
 
   public async execute(obj: Map<String, Hotel>) {
     const data = await this.fetchHotelData(this.patagoniaURL);
+    console.log(data[0]);
     // for (const hotel of data) {
     //   obj.set(hotel.id, hotel);
     // }

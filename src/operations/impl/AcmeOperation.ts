@@ -11,18 +11,18 @@ export class AcmeOperation implements Operation<Map<String, Hotel>> {
     //   hotelStore.set(hotel.Id, hotel);
     // }
 
-    const hehe: AcmeQueryDTO = rawData[0];
-    console.log(hehe.Id);
-    console.log(hehe.City);
-    console.log(hehe.Country);
-    console.log(hehe.Description);
-    console.log(hehe.DestinationId);
-    console.log(hehe.Facilities);
-    console.log(hehe.Latitude);
-    console.log(hehe.Longitude);
-    console.log(hehe.Name);
-    console.log(hehe.PostalCode);
-    console.log(hehe.Address);
+    // const hehe: AcmeQueryDTO = rawData[0];
+    // console.log(hehe.Id);
+    // console.log(hehe.City);
+    // console.log(hehe.Country);
+    // console.log(hehe.Description);
+    // console.log(hehe.DestinationId);
+    // console.log(hehe.Facilities);
+    // console.log(hehe.Latitude);
+    // console.log(hehe.Longitude);
+    // console.log(hehe.Name);
+    // console.log(hehe.PostalCode);
+    // console.log(hehe.Address);
 
   }
 
