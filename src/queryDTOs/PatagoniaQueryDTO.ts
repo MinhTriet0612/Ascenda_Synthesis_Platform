@@ -1,5 +1,6 @@
+import { SupplierQueryDTO } from "./SupplierQueryDTO";
 
-export interface PatagoniaQueryDTO {
+export interface PatagoniaQueryDTO extends SupplierQueryDTO {
   id: String;
   destination: number;
   name: String;
