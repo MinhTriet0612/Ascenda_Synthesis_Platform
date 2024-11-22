@@ -6,7 +6,7 @@ export class PatagoniaOperation implements Operation<Map<String, Hotel>> {
 
   public async execute(hotelStore: Map<String, Hotel>) {
     await this.fetchHotelData(this.patagoniaURL).then((data) => {
-      console.log(data[0])
+      console.dir(data, { depth: null });
     });
   }
 

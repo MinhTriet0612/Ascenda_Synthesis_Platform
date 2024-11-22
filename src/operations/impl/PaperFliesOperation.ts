@@ -11,9 +11,9 @@ export class PaperFliesOperation implements Operation<Map<String, Hotel>> {
   public async execute(hotelStore: Map<String, Hotel>) {
     const data: PaperFliesQueryDTO[] = await this.fetchHotelData(this.patagoniaURL);
     const mapper: MapperContext = new MapperContext().setMapper(MapperType.PaperFlies);
-    // console.log(data[0])
 
     const hotels: Hotel[] = data.map((dto: PaperFliesQueryDTO) => mapper.executeMapping(dto));
+
     hotels.forEach((hotelTmp) => {
       const hotelId = hotelTmp.id;
       if (!hotelStore.has(hotelId)) {
@@ -23,6 +23,11 @@ export class PaperFliesOperation implements Operation<Map<String, Hotel>> {
 
       const hotel = hotelStore.get(hotelId);
       hotel.updateHotelData(hotelTmp);
+
+
+      if (hotelTmp.description) { // just a description overwrite
+        hotel.description = hotelTmp.description;
+      }
     });
 
   }

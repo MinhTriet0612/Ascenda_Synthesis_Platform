@@ -78,13 +78,6 @@ export class Hotel {
     this.setImages(hotelTmp.images);
     this.setBookingConditions(hotelTmp.booking_conditions);
 
-    if (hotelTmp.name && !this.name) {
-      this.name = hotelTmp.name;
-    }
-
-    if (hotelTmp.description) {
-      this.description = hotelTmp.description;
-    }
   }
 }
 

@@ -17,34 +17,11 @@ export class AcmeOperation implements Operation<Map<String, Hotel>> {
       const hotelId = hotelTmp.id;
       if (!hotelStore.has(hotelId)) {
         hotelStore.set(hotelId, hotelTmp);
+        return;
       }
 
       const hotel = hotelStore.get(hotelId);
-      const location = hotel.location;
-      const locationTmp = hotelTmp.location;
-      if (!location.address)
-        location.address = locationTmp.address;
-
-      if (!location.city)
-        location.city = locationTmp.city;
-
-      if (!location.country)
-        location.country = locationTmp.country;
-
-      if (!location.lat)
-        location.lat = locationTmp.lat;
-
-      if (!location.lng)
-        location.lng = locationTmp.lng;
-
-      if (!hotel.description)
-        hotel.description = hotelTmp.description;
-
-      if (!hotel.name)
-        hotel.name = hotelTmp.name;
-
-      if (!hotel.location)
-        hotel.location = location
+      hotel.updateHotelData(hotelTmp);
     });
 
   }

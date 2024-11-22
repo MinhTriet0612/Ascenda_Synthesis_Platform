@@ -2,6 +2,7 @@ import { Hotel } from "../model/Hotel";
 import { SupplierQueryDTO } from "../queryDTOs/SupplierQueryDTO";
 import { AcmeQueryMapper } from "./implementation/AcmeQueryMapper";
 import { PaperFliesQueryMapper } from "./implementation/PaperFliesQueryMapper";
+import { PatagoniaQueryMapper } from "./implementation/PatagoniaQueryMapper";
 import { SupplierQueryMapper } from "./SupplierQueryMapper";
 import { MapperType } from "./type/MapperType";
 
@@ -17,11 +18,12 @@ export class MapperContext {
         this.mapper = new AcmeQueryMapper();
         return this;
 
-      case MapperType.Patagonia:
-        throw new Error('Not implemented');
-
       case MapperType.PaperFlies:
         this.mapper = new PaperFliesQueryMapper();
+        return this;
+
+      case MapperType.Patagonia:
+        this.mapper = new PatagoniaQueryMapper();
         return this;
 
       default: throw new Error('Invalid MapperType');
