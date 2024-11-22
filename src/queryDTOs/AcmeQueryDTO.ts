@@ -1,6 +1,7 @@
+import { SupplierQueryDTO } from "./SupplierQueryDTO";
 
 
-export interface AcmeQueryDTO {
+export interface AcmeQueryDTO extends SupplierQueryDTO {
   Id: String;
   DestinationId: number;
   Name: String;
@@ -13,3 +14,4 @@ export interface AcmeQueryDTO {
   Description: String;
   Facilities: String[];
 }
+

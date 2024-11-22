@@ -6,10 +6,11 @@ export class PatagoniaOperation implements Operation<Map<String, Hotel>> {
 
   public async execute(hotelStore: Map<String, Hotel>) {
     await this.fetchHotelData(this.patagoniaURL).then((data) => {
+      console.log(data[0])
     });
   }
 
-  private async fetchHotelData(url: String): Promise<Hotel> {
+  private async fetchHotelData(url: String): Promise<any> {
     const response = await fetch(url.toString());
     const data = await response.json();
     return data;
