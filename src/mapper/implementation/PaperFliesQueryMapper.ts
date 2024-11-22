@@ -24,23 +24,27 @@ export class PaperFliesQueryMapper implements SupplierQueryMapper {
       city: dto.location?.city ? dto.location.city.trim() : null,
       country: dto.location?.country ? dto.location.country.trim() : null
     }
-    hotel.booking_conditions = booking_conditions;
-    hotel.location = locate;
 
     hotel.id = dto.hotel_id.trim();
     hotel.destination_id = dto?.destination_id;
-    hotel.name = dto.hotel_id.trim();
+    hotel.name = dto.hotel_name.trim();
+    hotel.location = locate;
+    hotel.description = dto?.details ? dto.details.trim() : null;
+
+    hotel.amenities = {
+      general: dto?.amenities?.general ? dto.amenities.general.map(ele => ele.trim()) : [],
+      room: dto?.amenities?.room ? dto.amenities.room.map(ele => ele.trim()) : []
+    }
 
     hotel.images = {
-      site: dto.images.site.map(ele => {
+      site: dto?.images?.site ? dto.images.site.map(ele => {
         return {
           link: ele.link.trim(),
           description: ele.caption.trim()
         }
-      }),
+      }) : [],
 
       rooms: dto?.images?.rooms ? dto.images.rooms.map(ele => {
-
         return {
           link: ele.link.trim(),
           description: ele.caption.trim()
@@ -55,41 +59,8 @@ export class PaperFliesQueryMapper implements SupplierQueryMapper {
       }) : []
     }
 
-    if (hotel?.images?.rooms) {
-      hotel.images.rooms = hotel.images.rooms.map(ele => {
-        return {
-          link: ele?.link.trim(),
-          description: ele?.description.trim()
-        }
-      })
-    }
+    hotel.booking_conditions = booking_conditions;
 
-
-    if (hotel?.images?.site) {
-      hotel.images.site = hotel.images.site.map(ele => {
-        return {
-          link: ele?.link.trim(),
-          description: ele?.description.trim()
-        }
-      })
-    }
-
-    // if (hotel?.images?.amenities) {
-    //   hotel.images.amenities = hotel.images.amenities.map(ele => {
-    //     return {
-    //       link: ele?.link.trim(),
-    //       description: ele?.description.trim()
-    //     }
-    //   })
-    // }
-
-    // if (hotel?.amenities?.room) {
-    //   hotel.amenities.room = hotel.amenities.room.map(ele => ele.trim());
-    // }
-    //
-    // if (hotel?.amenities?.general) {
-    //   hotel.amenities.general = hotel.amenities.general.map(ele => ele.trim());
-    // }
     return hotel;
   }
 }

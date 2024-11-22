@@ -8,15 +8,22 @@ import { Operation } from "../IOperation";
 export class PaperFliesOperation implements Operation<Map<String, Hotel>> {
   private patagoniaURL: String = 'https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/paperflies';
 
-  public async execute(obj: Map<String, Hotel>) {
+  public async execute(hotelStore: Map<String, Hotel>) {
     const data: PaperFliesQueryDTO[] = await this.fetchHotelData(this.patagoniaURL);
     const mapper: MapperContext = new MapperContext().setMapper(MapperType.PaperFlies);
+    // console.log(data[0])
 
+    const hotels: Hotel[] = data.map((dto: PaperFliesQueryDTO) => mapper.executeMapping(dto));
+    hotels.forEach((hotelTmp) => {
+      const hotelId = hotelTmp.id;
+      if (!hotelStore.has(hotelId)) {
+        hotelStore.set(hotelId, hotelTmp);
+        return;
+      }
 
-    const hotel:Hotel = mapper.executeMapping(data[0]);
-    console.dir(hotel, {depth: null});
-    
-  
+      const hotel = hotelStore.get(hotelId);
+      hotel.updateHotelData(hotelTmp);
+    });
 
   }
 

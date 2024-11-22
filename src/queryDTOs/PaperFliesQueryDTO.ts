@@ -1,5 +1,4 @@
 import { Amentity } from "../model/Amentity";
-import { ImageStore } from "../model/ImageStore";
 import { Location } from "../model/Location";
 
 export interface PaperFliesQueryDTO {
@@ -13,14 +12,13 @@ export interface PaperFliesQueryDTO {
   booking_conditions: string[];
 }
 
-
-export interface ImageStoreDTO {
+interface ImageStoreDTO {
   rooms: ImageDTO[];
   site: ImageDTO[];
   amenities: ImageDTO[];
 }
 
-export interface ImageDTO {
+interface ImageDTO {
   link: string;
   caption: string;
 }

@@ -1,4 +1,3 @@
-import { AcmeQueryMapper } from "../../mapper/implementation/AcmeQueryMapper";
 import { MapperContext } from "../../mapper/MapperContext";
 import { MapperType } from "../../mapper/type/MapperType";
 import { Hotel } from "../../model/Hotel";
@@ -47,7 +46,6 @@ export class AcmeOperation implements Operation<Map<String, Hotel>> {
       if (!hotel.location)
         hotel.location = location
     });
-
 
   }
 
