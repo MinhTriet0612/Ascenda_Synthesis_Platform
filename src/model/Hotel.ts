@@ -8,7 +8,7 @@ export class Hotel {
   name: String;
   location: Location;
   description: String;
-  amenities: Amentity[];
+  amenities: Amentity;
   images: ImageStore;
   booking_conditions: String[];
 }

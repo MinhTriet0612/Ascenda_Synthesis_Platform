@@ -1,3 +1,4 @@
+import { AcmeQueryMapper } from "../../mapper/implementation/AcmeQueryMapper";
 import { MapperContext } from "../../mapper/MapperContext";
 import { MapperType } from "../../mapper/type/MapperType";
 import { Hotel } from "../../model/Hotel";
@@ -8,10 +9,10 @@ export class AcmeOperation implements Operation<Map<String, Hotel>> {
   private acmeURL: String = 'https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme';
 
   public async execute(hotelStore: Map<String, Hotel>) {
-    const rawData = await this.fetchHotelData(this.acmeURL);
-    const mapper = new MapperContext().setMapper(MapperType.Acme);
+    const rawData: AcmeQueryDTO[] = await this.fetchHotelData(this.acmeURL);
+    const mapper: MapperContext = new MapperContext().setMapper(MapperType.Acme);
 
-    const hotels = rawData.map((dto: AcmeQueryDTO) => mapper.executeMapping(dto));
+    const hotels: Hotel[] = rawData.map((dto: AcmeQueryDTO) => mapper.executeMapping(dto));
 
     hotels.forEach((hotelTmp) => {
       const hotelId = hotelTmp.id;
@@ -45,25 +46,10 @@ export class AcmeOperation implements Operation<Map<String, Hotel>> {
 
       if (!hotel.location)
         hotel.location = location
-
     });
 
 
   }
-
-
-  // const hehe: AcmeQueryDTO = rawData[0];
-  // console.log(hehe.Id);
-  // console.log(hehe.City);
-  // console.log(hehe.Country);
-  // console.log(hehe.Description);
-  // console.log(hehe.DestinationId);
-  // console.log(hehe.Facilities);
-  // console.log(hehe.Latitude);
-  // console.log(hehe.Longitude);
-  // console.log(hehe.Name);
-  // console.log(hehe.PostalCode);
-  // console.log(hehe.Address);
 
   private async fetchHotelData(url: String): Promise<AcmeQueryDTO[]> {
     const response = await fetch(url.toString());
