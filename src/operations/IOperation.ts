@@ -1,5 +1,5 @@
 
 
 export interface Operation<T> {
-  execute(obj: T): void;
+  execute(obj: T): Promise<void>;
 }

@@ -12,9 +12,11 @@ export class PineLine<T> {
     return this;
   }
 
-
-  public execute(data: T): void {
-    this.operations.forEach(operation => operation.execute(data));
+  public async execute(data: T): Promise<void> {
+    for (const operation of this.operations) {
+      await operation.execute(data).then(() => {
+        console.log('Operation completed');
+      });
+    }
   }
-
 }

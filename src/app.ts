@@ -1,62 +1,25 @@
 import { PineLine } from "./pineline/PineLine";
 import { Hotel } from "./model/Hotel";
-import { Operation } from "./operations/IOperation";
+import { AcmeOperation } from "./operations/impl/AcmeOperation";
+import { PaperFliesOperation } from "./operations/impl/PaperFliesOperation";
+import { PatagoniaOperation } from "./operations/impl/PatagoniaOperation";
 
-class AcmeOperation<Hotel> implements Operation<Hotel> {
-  private acmeURL: String = 'https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme';
 
-  public execute(obj: Hotel) {
-    this.fetchHotelData(this.acmeURL).then((data) => {
-      console.log(data);
-    });
-    console.log("AcmeOperation: " + JSON.stringify(obj));
-  }
 
-  private async fetchHotelData(url: String): Promise<Hotel> {
-    const response = await fetch(url.toString());
-    const data = await response.json();
-    return data;
-  }
+async function hehe(hotel: Hotel) {
+  const pineLine = new PineLine<Hotel>();
+  pineLine.addOperation(new AcmeOperation()).addOperation(new PaperFliesOperation())/* .addOperation(new PatagoniaOperation()); */
+  await pineLine.execute(hotel);
 }
 
-class PatagoniaOperation<Hotel> implements Operation<Hotel> {
-  private patagoniaURL: String = 'https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/patagonia';
-
-  public execute(obj: Hotel) {
-    this.fetchHotelData(this.patagoniaURL).then((data) => {
-      console.log(data);
-    });
-    console.log("PatagoniaOperation: " + JSON.stringify(obj));
-  }
-
-  private async fetchHotelData(url: String): Promise<Hotel> {
-    const response = await fetch(url.toString());
-    const data = await response.json();
-    return data;
-  }
+const hotel = new Hotel();
+const hehe1 = async () => {
+  await hehe(hotel);
+  console.log(hotel);
 }
 
-class PaperFliesOperation<Hotel> implements Operation<Hotel> {
-  private patagoniaURL: String = 'https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/paperflies';
+hehe1();
 
-  public execute(obj: Hotel) {
-    this.fetchHotelData(this.patagoniaURL).then((data) => {
-      console.log(data);
-    });
-    console.log("PaperFliesOperation: " + JSON.stringify(obj));
-  }
-
-  private async fetchHotelData(url: String): Promise<Hotel> {
-    const response = await fetch(url.toString());
-    const data = await response.json();
-    return data;
-  }
-}
-
-const pineLine = new PineLine<Hotel>();
-pineLine.addOperation(new AcmeOperation()).addOperation(new PaperFliesOperation()).addOperation(new PatagoniaOperation());
-
-pineLine.execute(new Hotel());
 
 // const dirs = ['acme', 'patagonia', 'paperflies'];
 
