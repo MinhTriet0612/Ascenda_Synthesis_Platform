@@ -25,9 +25,14 @@ export class PaperFliesOperation implements Operation<Map<String, Hotel>> {
       const hotel = hotelStore.get(hotelId);
       hotel.updateHotelData(hotelTmp);
 
-
-      if (hotelTmp.description) { // just a description overwrite
+      // just a description overwrite
+      if (hotelTmp.description || hotelTmp.description.trim() === '') {
         hotel.description = hotelTmp.description;
+      }
+
+      // just a country overwrite
+      if (hotelTmp?.location?.country || hotelTmp?.location?.country.trim() === '') {
+        hotel.location.country = hotelTmp.location.country;
       }
     });
 
@@ -39,8 +44,3 @@ export class PaperFliesOperation implements Operation<Map<String, Hotel>> {
     return data;
   }
 }
-
-// for (const hotel of data) {
-//   obj.set(hotel.id, hotel);
-// }
-
