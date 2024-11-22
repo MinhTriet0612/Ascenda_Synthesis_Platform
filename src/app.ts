@@ -14,6 +14,4 @@ async function main() {
 
 main();
 
-
-
 // console.log(tmpdata);
