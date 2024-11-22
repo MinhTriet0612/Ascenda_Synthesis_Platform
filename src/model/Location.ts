@@ -2,7 +2,7 @@
 export interface Location {
   lat: number;
   lng: number;
-  address: String;
-  city: String;
-  country: String;
+  address: string;
+  city: string;
+  country: string;
 }

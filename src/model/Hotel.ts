@@ -3,14 +3,14 @@ import { ImageStore } from "./ImageStore";
 import { Location } from "./Location";
 
 export class Hotel {
-  id: String;
+  id: string;
   destination_id: number;
-  name: String;
+  name: string;
   location: Location;
-  description: String;
+  description: string;
   amenities: Amentity;
   images: ImageStore;
-  booking_conditions: String[];
+  booking_conditions: string[];
 
   constructor() { }
 
@@ -30,12 +30,12 @@ export class Hotel {
       location.lng = locationTmp.lng;
   }
 
-  setDescription(description: String): void {
+  setDescription(description: string): void {
     if (!this?.description && description)
       this.description = description;
   }
 
-  setName(name: String): void {
+  setName(name: string): void {
     if (!this?.name && name)
       this.name = name;
   }
@@ -68,7 +68,7 @@ export class Hotel {
 
   }
 
-  setBookingConditions(booking_conditions: String[]): void {
+  setBookingConditions(booking_conditions: string[]): void {
     if ((!this?.booking_conditions || this?.booking_conditions.length === 0) && booking_conditions)
       this.booking_conditions = booking_conditions
   }

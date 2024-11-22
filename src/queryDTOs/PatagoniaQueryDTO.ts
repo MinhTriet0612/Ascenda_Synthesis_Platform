@@ -1,14 +1,14 @@
 import { SupplierQueryDTO } from "./SupplierQueryDTO";
 
 export interface PatagoniaQueryDTO extends SupplierQueryDTO {
-  id: String;
+  id: string;
   destination: number;
-  name: String;
+  name: string;
   lat: number;
   lng: number;
-  address: String;
-  info: String;
-  amenities: String[];
+  address: string;
+  info: string;
+  amenities: string[];
   images: ImageStore;
 }
 
@@ -18,6 +18,6 @@ interface ImageStore {
 }
 
 interface Image {
-  url: String,
-  description: String
+  url: string,
+  description: string
 }

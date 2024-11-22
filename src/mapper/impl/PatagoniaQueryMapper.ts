@@ -13,6 +13,14 @@ export class PatagoniaQueryMapper implements SupplierQueryMapper {
     PatagoniaQueryMapper.instance = this;
   }
 
+  public static getInstance(): PatagoniaQueryMapper {
+    if (PatagoniaQueryMapper?.instance) {
+      return PatagoniaQueryMapper.instance;
+    }
+    PatagoniaQueryMapper.instance = new PatagoniaQueryMapper();
+    return PatagoniaQueryMapper.instance;
+  }
+
   public mapToEntity(dto: PatagoniaQueryDTO): Hotel {
     const hotel = new Hotel();
 

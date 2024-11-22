@@ -1,6 +1,6 @@
 
 
 export interface Amentity {
-  general: String[];
-  room: String[];
+  general: string[];
+  room: string[];
 }

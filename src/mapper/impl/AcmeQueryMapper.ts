@@ -14,6 +14,14 @@ export class AcmeQueryMapper implements SupplierQueryMapper {
     AcmeQueryMapper.instance = this;
   }
 
+  public static getInstance(): AcmeQueryMapper {
+    if (AcmeQueryMapper?.instance) {
+      return AcmeQueryMapper.instance;
+    }
+    AcmeQueryMapper.instance = new AcmeQueryMapper();
+    return AcmeQueryMapper.instance;
+  }
+
   public mapToEntity(dto: AcmeQueryDTO): Hotel {
     const hotel = new Hotel();
     const location: Location = {

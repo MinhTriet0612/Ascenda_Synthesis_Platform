@@ -6,6 +6,6 @@ export interface ImageStore {
 }
 
 export interface Image {
-  link: String;
-  description: String;
+  link: string;
+  description: string;
 }

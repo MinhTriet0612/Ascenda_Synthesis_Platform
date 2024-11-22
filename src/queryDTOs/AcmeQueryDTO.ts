@@ -2,16 +2,16 @@ import { SupplierQueryDTO } from "./SupplierQueryDTO";
 
 
 export interface AcmeQueryDTO extends SupplierQueryDTO {
-  Id: String;
+  Id: string;
   DestinationId: number;
-  Name: String;
+  Name: string;
   Latitude: number;
   Longitude: number;
-  Address: String;
-  City: String;
-  Country: String;
-  PostalCode: String;
-  Description: String;
-  Facilities: String[];
+  Address: string;
+  City: string;
+  Country: string;
+  PostalCode: string;
+  Description: string;
+  Facilities: string[];
 }
 

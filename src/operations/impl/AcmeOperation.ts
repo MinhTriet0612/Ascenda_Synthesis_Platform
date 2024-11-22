@@ -1,13 +1,14 @@
+import { HotelStoreContext } from "../../context/HotelStoreContext";
 import { MapperContext } from "../../mapper/MapperContext";
-import { MapperType } from "../../mapper/type/MapperType";
+import { MapperType } from "../../mapper/constrains/MapperType";
 import { Hotel } from "../../model/Hotel";
 import { AcmeQueryDTO } from "../../queryDTOs/AcmeQueryDTO";
-import { Operation } from "../IOperation";
+import { Operation } from "../Operation";
 
-export class AcmeOperation implements Operation<Map<String, Hotel>> {
+export class AcmeOperation implements Operation<HotelStoreContext> {
   private acmeURL: String = 'https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme';
 
-  public async execute(hotelStore: Map<String, Hotel>) {
+  public async execute(ctx: HotelStoreContext) {
     const rawData: AcmeQueryDTO[] = await this.fetchHotelData(this.acmeURL);
     const mapper: MapperContext = new MapperContext().setMapper(MapperType.Acme);
 
@@ -15,12 +16,12 @@ export class AcmeOperation implements Operation<Map<String, Hotel>> {
 
     hotels.forEach((hotelTmp) => {
       const hotelId = hotelTmp.id;
-      if (!hotelStore.has(hotelId)) {
-        hotelStore.set(hotelId, hotelTmp);
+      if (!ctx.hotelStore.has(hotelId)) {
+        ctx.hotelStore.set(hotelId, hotelTmp);
         return;
       }
 
-      const hotel = hotelStore.get(hotelId);
+      const hotel = ctx.hotelStore.get(hotelId);
       hotel.updateHotelData(hotelTmp);
     });
 

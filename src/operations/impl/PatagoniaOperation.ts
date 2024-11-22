@@ -1,13 +1,14 @@
+import { HotelStoreContext } from "../../context/HotelStoreContext";
 import { MapperContext } from "../../mapper/MapperContext";
-import { MapperType } from "../../mapper/type/MapperType";
+import { MapperType } from "../../mapper/constrains/MapperType";
 import { Hotel } from "../../model/Hotel";
 import { PatagoniaQueryDTO } from "../../queryDTOs/PatagoniaQueryDTO";
-import { Operation } from "../IOperation";
+import { Operation } from "../Operation";
 
-export class PatagoniaOperation implements Operation<Map<String, Hotel>> {
+export class PatagoniaOperation implements Operation<HotelStoreContext> {
   private patagoniaURL: String = 'https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/patagonia';
 
-  public async execute(hotelStore: Map<String, Hotel>) {
+  public async execute(ctx: HotelStoreContext) {
     const rawData: PatagoniaQueryDTO[] = await this.fetchHotelData(this.patagoniaURL)
 
     const mapper: MapperContext = new MapperContext().setMapper(MapperType.Patagonia);
@@ -15,12 +16,12 @@ export class PatagoniaOperation implements Operation<Map<String, Hotel>> {
 
     hotels.forEach((hotelTmp) => {
       const hotelId = hotelTmp.id;
-      if (!hotelStore.has(hotelId)) {
-        hotelStore.set(hotelId, hotelTmp);
+      if (!ctx.hotelStore.has(hotelId)) {
+        ctx.hotelStore.set(hotelId, hotelTmp);
         return;
       }
 
-      const hotel = hotelStore.get(hotelId);
+      const hotel = ctx.hotelStore.get(hotelId);
       hotel.updateHotelData(hotelTmp);
     });
 

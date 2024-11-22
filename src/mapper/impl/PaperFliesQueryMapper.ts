@@ -13,6 +13,14 @@ export class PaperFliesQueryMapper implements SupplierQueryMapper {
     PaperFliesQueryMapper.instance = this;
   }
 
+  public static getInstance(): PaperFliesQueryMapper {
+    if (PaperFliesQueryMapper?.instance) {
+      return PaperFliesQueryMapper.instance;
+    }
+    PaperFliesQueryMapper.instance = new PaperFliesQueryMapper();
+    return PaperFliesQueryMapper.instance
+  }
+
   public mapToEntity(dto: PaperFliesQueryDTO): Hotel {
     const hotel = new Hotel();
     const booking_conditions = dto?.booking_conditions.map(ele => ele.trim());

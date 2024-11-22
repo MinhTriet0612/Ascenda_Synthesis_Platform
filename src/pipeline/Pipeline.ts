@@ -1,13 +1,13 @@
-import { Operation } from "../operations/IOperation";
+import { Operation } from "../operations/Operation";
 
-export class PineLine<T> {
+export class Pipeline<T> {
   private readonly operations: Operation<T>[];
 
   constructor() {
     this.operations = [];
   }
 
-  public addOperation(operation: Operation<T>): this {
+  public addOperation(operation: Operation<T>): Pipeline<T> {
     this.operations.push(operation);
     return this;
   }
