@@ -5,23 +5,17 @@ import { PaperFliesOperation } from "./operations/impl/PaperFliesOperation";
 import { PatagoniaOperation } from "./operations/impl/PatagoniaOperation";
 
 
+async function hehe() {
+  const hotelStore: Map<String, Hotel> = new Map();
 
-async function hehe(hotel: Hotel) {
-  const pineLine = new PineLine<Hotel>();
-  pineLine.addOperation(new AcmeOperation()).addOperation(new PaperFliesOperation())/* .addOperation(new PatagoniaOperation()); */
-  await pineLine.execute(hotel);
+  const pineLine = new PineLine<Map<String, Hotel>>();
+  pineLine.addOperation(new AcmeOperation()).addOperation(new PaperFliesOperation()).addOperation(new PatagoniaOperation());
+  await pineLine.execute(hotelStore);
+  console.log(hotelStore);
 }
 
-const hotel = new Hotel();
-const hehe1 = async () => {
-  await hehe(hotel);
-  console.log(hotel);
-}
+hehe();
 
-hehe1();
-
-
-// const dirs = ['acme', 'patagonia', 'paperflies'];
 
 
 // const tmpdata = [

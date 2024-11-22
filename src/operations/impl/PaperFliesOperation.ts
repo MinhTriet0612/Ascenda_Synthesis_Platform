@@ -2,15 +2,17 @@ import { Hotel } from "../../model/Hotel";
 import { Operation } from "../IOperation";
 
 
-export class PaperFliesOperation implements Operation<Hotel> {
+export class PaperFliesOperation implements Operation<Map<String, Hotel>> {
   private patagoniaURL: String = 'https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/paperflies';
 
-  public async execute(obj: Hotel) {
+  public async execute(obj: Map<String, Hotel>) {
     const data = await this.fetchHotelData(this.patagoniaURL);
-    obj.destination_id = data[0].destination_id;
+    // for (const hotel of data) {
+    //   obj.set(hotel.id, hotel);
+    // }
   }
 
-  private async fetchHotelData(url: String): Promise<Hotel> {
+  private async fetchHotelData(url: String): Promise<any> {
     const response = await fetch(url.toString());
     const data = await response.json();
     return data;
