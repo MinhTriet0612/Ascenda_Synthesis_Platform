@@ -1,6 +1,6 @@
 import { Hotel } from "../model/Hotel";
 import { SupplierQueryDTO } from "../queryDTOs/SupplierQueryDTO";
-import { AcmeQueryMapper } from "./AcmeQueryMapper";
+import { AcmeQueryMapper } from "./implementation/AcmeQueryMapper";
 import { SupplierQueryMapper } from "./SupplierQueryMapper";
 import { MapperType } from "./type/MapperType";
 
