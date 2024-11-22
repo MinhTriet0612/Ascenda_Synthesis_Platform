@@ -11,7 +11,6 @@ async function hehe() {
   const pineLine = new PineLine<Map<String, Hotel>>();
   pineLine.addOperation(new AcmeOperation()).addOperation(new PaperFliesOperation()).addOperation(new PatagoniaOperation());
   await pineLine.execute(hotelStore);
-  console.log(hotelStore);
 }
 
 hehe();
