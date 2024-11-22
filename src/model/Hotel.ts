@@ -18,15 +18,15 @@ export class Hotel {
     const location: Location = this?.location;
     if (!location)
       this.location = locationTmp
-    if (!location?.address)
+    if (!location?.address && locationTmp?.address)
       location.address = locationTmp.address;
-    if (!location?.city)
+    if (!location?.city && locationTmp?.city)
       location.city = locationTmp.city;
-    if (!location?.country)
+    if (!location?.country && locationTmp?.country)
       location.country = locationTmp.country;
-    if (!location?.lat)
+    if (!location?.lat && locationTmp.lat)
       location.lat = locationTmp.lat;
-    if (!location?.lng)
+    if (!location?.lng && locationTmp.lng)
       location.lng = locationTmp.lng;
   }
 
@@ -44,10 +44,10 @@ export class Hotel {
     if (!this?.amenities && amenities)
       this.amenities = amenities;
 
-    if (!this?.amenities?.general && amenities.general)
+    if ((!this?.amenities?.general || this.amenities?.general.length === 0) && amenities.general)
       this.amenities.general = amenities.general;
 
-    if (!this?.amenities?.room && amenities.room)
+    if ((!this?.amenities?.room || this.amenities?.room.length === 0) && amenities.room)
       this.amenities.room = amenities.room;
   }
 
@@ -55,18 +55,21 @@ export class Hotel {
     if (!this?.images && images)
       this.images = images;
 
-    if (!this?.images?.site && images.site)
+    if ((!this?.images?.site && this?.images?.site.length === 0) && images?.site)
       this.images.site = images.site;
 
-    if (!this?.images?.rooms && images.rooms)
+    if ((!this?.images?.rooms || this?.images?.rooms.length === 0) && images?.rooms)
       this.images.rooms = images.rooms;
 
-    if (!this?.images?.amenities && images.amenities)
+
+    if ((!this?.images?.amenities || this?.images?.amenities.length === 0) && images?.amenities) {
       this.images.amenities = images.amenities;
+    }
+
   }
 
   setBookingConditions(booking_conditions: String[]): void {
-    if (!this?.booking_conditions && booking_conditions)
+    if ((!this?.booking_conditions || this?.booking_conditions.length === 0) && booking_conditions)
       this.booking_conditions = booking_conditions
   }
 
@@ -74,10 +77,9 @@ export class Hotel {
     this.setLocation(hotelTmp.location);
     this.setDescription(hotelTmp.description);
     this.setName(hotelTmp.name);
-    this.setAmenities(hotelTmp.amenities);
     this.setImages(hotelTmp.images);
+    this.setAmenities(hotelTmp.amenities);
     this.setBookingConditions(hotelTmp.booking_conditions);
-
   }
 }
 

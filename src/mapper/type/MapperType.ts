@@ -2,7 +2,7 @@
 
 export enum MapperType {
   Acme = 'Acme',
-  Patagonia = 'Patagonia',
   PaperFlies = 'PaperFlies',
+  Patagonia = 'Patagonia',
 }
 

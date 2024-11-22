@@ -12,6 +12,7 @@ export class PaperFliesOperation implements Operation<Map<String, Hotel>> {
     const data: PaperFliesQueryDTO[] = await this.fetchHotelData(this.patagoniaURL);
     const mapper: MapperContext = new MapperContext().setMapper(MapperType.PaperFlies);
 
+
     const hotels: Hotel[] = data.map((dto: PaperFliesQueryDTO) => mapper.executeMapping(dto));
 
     hotels.forEach((hotelTmp) => {

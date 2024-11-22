@@ -14,7 +14,6 @@ export class PaperFliesQueryMapper implements SupplierQueryMapper {
   }
 
   public mapToEntity(dto: PaperFliesQueryDTO): Hotel {
-
     const hotel = new Hotel();
     const booking_conditions = dto?.booking_conditions.map(ele => ele.trim());
     const locate: Location = {
@@ -30,7 +29,6 @@ export class PaperFliesQueryMapper implements SupplierQueryMapper {
     hotel.name = dto.hotel_name.trim();
     hotel.location = locate;
     hotel.description = dto?.details ? dto.details.trim() : null;
-
     hotel.amenities = {
       general: dto?.amenities?.general ? dto.amenities.general.map(ele => ele.trim()) : [],
       room: dto?.amenities?.room ? dto.amenities.room.map(ele => ele.trim()) : []
