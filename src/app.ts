@@ -2,6 +2,10 @@ import { SupplierController } from "./controller/SupplierController";
 
 
 function parseArgs(args: string[]): { hotel_ids: string[], destination_ids: number[] } {
+  if (args.length < 2) {
+    throw new Error("Invalid arguments, please input hotel_ids and destination_ids");
+  }
+
   if (args[0] === "none") {
     return { hotel_ids: [], destination_ids: [] };
   }
