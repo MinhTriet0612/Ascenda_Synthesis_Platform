@@ -1,0 +1,30 @@
+[2024-11-23T16:50:26.897Z] [INFO] Successfully fetched data from in AcmeOperation
+[2024-11-23T16:50:26.897Z] [INFO] Successfully merged data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme
+[2024-11-23T16:50:27.916Z] [INFO] Successfully fetched data from in PaperFliesOperation
+[2024-11-23T16:50:27.918Z] [INFO] Successfully merged data from PaperFliesOperation
+[2024-11-23T16:50:28.230Z] [INFO] Successfully fetched data from in PatagoniaOperation
+[2024-11-23T16:50:28.230Z] [INFO] Successfully merged data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/patagonia
+[2024-11-23T16:55:52.998Z] [INFO] Fetching data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme
+[2024-11-23T16:55:54.013Z] [INFO] Successfully merged data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme
+[2024-11-23T16:55:54.014Z] [INFO] Fetching data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/paperflies
+[2024-11-23T16:55:54.848Z] [INFO] Successfully merged data from PaperFliesOperation
+[2024-11-23T16:55:54.848Z] [INFO] Fetching data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/patagonia
+[2024-11-23T16:55:55.202Z] [INFO] Successfully merged data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/patagonia
+[2024-11-23T17:04:32.251Z] [INFO] Fetching data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme
+[2024-11-23T17:04:33.244Z] [INFO] Successfully merged data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme
+[2024-11-23T17:04:33.245Z] [INFO] Fetching data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/paperflies
+[2024-11-23T17:04:34.163Z] [INFO] Successfully merged data from PaperFliesOperation
+[2024-11-23T17:04:34.163Z] [INFO] Fetching data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/patagonia
+[2024-11-23T17:04:34.507Z] [INFO] Successfully merged data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/patagonia
+[2024-11-23T17:04:41.742Z] [INFO] Fetching data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme
+[2024-11-23T17:04:42.627Z] [INFO] Successfully merged data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme
+[2024-11-23T17:04:42.628Z] [INFO] Fetching data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/paperflies
+[2024-11-23T17:04:43.550Z] [INFO] Successfully merged data from PaperFliesOperation
+[2024-11-23T17:04:43.550Z] [INFO] Fetching data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/patagonia
+[2024-11-23T17:04:43.876Z] [INFO] Successfully merged data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/patagonia
+[2024-11-23T17:14:50.402Z] [INFO] Fetching data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme
+[2024-11-23T17:14:51.409Z] [INFO] Successfully merged data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme
+[2024-11-23T17:14:51.410Z] [INFO] Fetching data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/paperflies
+[2024-11-23T17:14:52.278Z] [INFO] Successfully merged data from PaperFliesOperation
+[2024-11-23T17:14:52.278Z] [INFO] Fetching data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/patagonia
+[2024-11-23T17:14:52.649Z] [INFO] Successfully merged data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/patagonia

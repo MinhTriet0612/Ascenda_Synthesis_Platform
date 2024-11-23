@@ -13,8 +13,7 @@ export class AcmeOperation extends SupplierOperation implements Operation<HotelS
 
   public async execute(hotelStore: HotelStore) {
     const rawData: AcmeQueryDTO[] = await super.fetchHotelData();
-    const hotelsTmp: Hotel[] = rawData.map((dto: AcmeQueryDTO) => AcmeQueryMapper.getInstance().mapToEntity(dto)
-    );
+    const hotelsTmp: Hotel[] = rawData.map((dto: AcmeQueryDTO) => AcmeQueryMapper.getInstance().mapToEntity(dto));
 
     super.mergeData(hotelsTmp, hotelStore);
   }

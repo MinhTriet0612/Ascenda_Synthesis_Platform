@@ -24,13 +24,11 @@ export class PatagoniaQueryMapper implements SupplierQueryMapper {
   public mapToEntity(dto: PatagoniaQueryDTO): Hotel {
     const hotel = new Hotel();
 
-    const location: Location = {
-      lat: dto.lat ? dto.lat : null,
-      lng: dto.lng ? dto.lng : null,
-      address: dto.address ? dto.address.trim() : null,
-      city: null,
-      country: null
-    }
+    const location: Location = new Location();
+    location.setLat(dto.lat);
+    location.setLng(dto.lng);
+    location.setAddress(dto.address);
+
 
     const amentites = {
       general: [],

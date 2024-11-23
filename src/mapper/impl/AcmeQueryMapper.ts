@@ -24,13 +24,12 @@ export class AcmeQueryMapper implements SupplierQueryMapper {
 
   public mapToEntity(dto: AcmeQueryDTO): Hotel {
     const hotel = new Hotel();
-    const location: Location = {
-      lat: dto.Latitude ? dto.Latitude : null,
-      lng: dto.Longitude ? dto.Longitude : null,
-      address: dto.Address.trim(),
-      city: dto.City.trim(),
-      country: dto.Country.trim()
-    }
+    const location: Location = new Location();
+    location.setLat(dto.Latitude);
+    location.setLng(dto.Longitude);
+    location.setAddress(dto.Address);
+    location.setCity(dto.City);
+    location.setCountry(dto.Country);
 
     hotel.id = dto.Id.trim();
     hotel.destination_id = dto.DestinationId;

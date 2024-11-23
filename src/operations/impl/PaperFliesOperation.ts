@@ -1,4 +1,5 @@
 import { HotelStore } from "../../context/HotelStore";
+import { Logger } from "../../logger/Logger";
 import { PaperFliesQueryMapper } from "../../mapper/impl/PaperFliesQueryMapper";
 import { Hotel } from "../../model/Hotel";
 import { PaperFliesQueryDTO } from "../../queryDTOs/PaperFliesQueryDTO";
@@ -19,26 +20,31 @@ export class PaperFliesOperation extends SupplierOperation implements Operation<
   }
 
   public mergeData(hotelsTmp: Hotel[], hotelStore: HotelStore): void {
-    hotelsTmp.forEach((hotelTmp) => {
-      const hotelId = hotelTmp.id;
-      if (!hotelStore.data.has(hotelId)) {
-        hotelStore.data.set(hotelId, hotelTmp);
-        return;
-      }
+    try {
+      hotelsTmp.forEach((hotelTmp) => {
+        const hotelId = hotelTmp.id;
+        if (!hotelStore.data.has(hotelId)) {
+          hotelStore.data.set(hotelId, hotelTmp);
+          return;
+        }
 
-      const hotel = hotelStore.data.get(hotelId);
-      hotel.updateHotelData(hotelTmp);
+        const hotel = hotelStore.data.get(hotelId);
+        hotel.updateHotelData(hotelTmp);
 
-      // just a description overwrite
-      if (hotelTmp.description || hotelTmp.description.trim() === '') {
-        hotel.description = hotelTmp.description;
-      }
+        // just a description overwrite
+        if (hotelTmp.description || hotelTmp.description.trim() === '') {
+          hotel.description = hotelTmp.description;
+        }
 
-      // just a country overwrite
-      if (hotelTmp?.location?.country || hotelTmp?.location?.country.trim() === '') {
-        hotel.location.country = hotelTmp.location.country;
-      }
-    });
-
+        // just a country overwrite
+        if (hotelTmp?.location?.country || hotelTmp?.location?.country.trim() === '') {
+          hotel.location.country = hotelTmp.location.country;
+        }
+      });
+      Logger.log('INFO', `Successfully merged data from ${this.constructor.name}`);
+    }
+    catch (error) {
+      Logger.log('ERROR', `Failed to merge data from ${this.constructor.name}`);
+    }
   }
 }

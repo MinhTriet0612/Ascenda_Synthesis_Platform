@@ -12,47 +12,59 @@ export class Hotel {
   images: ImageStore;
   booking_conditions: string[];
 
-  constructor() { }
+  constructor() {
+    this.location = new Location();
+  }
 
-  public setLocation(locationTmp: Location): void {
-    const location: Location = this?.location;
-    if (!location)
-      this.location = locationTmp
-    if (!location?.address && locationTmp?.address)
-      location.address = locationTmp.address;
-    if (!location?.city && locationTmp?.city)
-      location.city = locationTmp.city;
-    if (!location?.country && locationTmp?.country)
-      location.country = locationTmp.country;
-    if (!location?.lat && locationTmp.lat)
-      location.lat = locationTmp.lat;
-    if (!location?.lng && locationTmp.lng)
-      location.lng = locationTmp.lng;
+  public setLocation(location: Location): void {
+    if (!location) {
+      this.location = location;
+    }
+
+    this.location.setLat(location.lat);
+    this.location.setLng(location.lng);
+    this.location.setAddress(location.address);
+    this.location.setCity(location.city);
+    this.location.setCountry(location.country);
+
   }
 
   public setDescription(description: string): void {
-    if (!this?.description && description)
+    if (!this?.description && description) {
       this.description = description;
+    }
   }
 
   public setName(name: string): void {
-    if (!this?.name && name)
+    if (!this?.name && name) {
       this.name = name;
+    }
   }
 
   public setAmenities(amenities: Amentity): void {
-    if (!this?.amenities && amenities)
+    if (!amenities) {
+      return;
+    }
+
+    if (!this?.amenities) {
       this.amenities = amenities;
+    }
 
-    if ((!this?.amenities?.general || this.amenities?.general.length === 0) && amenities.general)
+    if ((!this?.amenities?.general || this.amenities?.general.length === 0) && amenities.general) {
       this.amenities.general = amenities.general;
+    }
 
-    if ((!this?.amenities?.room || this.amenities?.room.length === 0) && amenities.room)
+    if ((!this?.amenities?.room || this.amenities?.room.length === 0) && amenities.room) {
       this.amenities.room = amenities.room;
+    }
   }
 
   public setImages(images: ImageStore): void {
-    if (!this?.images && images)
+    if (!images) {
+      return;
+    }
+
+    if (!this?.images)
       this.images = images;
 
     if ((!this?.images?.site && this?.images?.site.length === 0) && images?.site)
@@ -65,7 +77,6 @@ export class Hotel {
     if ((!this?.images?.amenities || this?.images?.amenities.length === 0) && images?.amenities) {
       this.images.amenities = images.amenities;
     }
-
   }
 
   public setBookingConditions(booking_conditions: string[]): void {
@@ -82,4 +93,3 @@ export class Hotel {
     this.setBookingConditions(hotelTmp.booking_conditions);
   }
 }
-

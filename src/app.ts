@@ -1,4 +1,5 @@
 import { SupplierController } from "./controller/SupplierController";
+import { Logger } from "./logger/Logger";
 
 
 function parseArgs(args: string[]): { hotel_ids: string[], destination_ids: number[] } {

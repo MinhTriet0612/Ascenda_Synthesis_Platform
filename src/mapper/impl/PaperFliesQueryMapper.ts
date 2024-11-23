@@ -24,18 +24,18 @@ export class PaperFliesQueryMapper implements SupplierQueryMapper {
   public mapToEntity(dto: PaperFliesQueryDTO): Hotel {
     const hotel = new Hotel();
     const booking_conditions = dto?.booking_conditions.map(ele => ele.trim());
-    const locate: Location = {
-      lat: dto.location.lat ? dto.location.lat : null,
-      lng: dto.location.lng ? dto.location.lng : null,
-      address: dto.location?.address ? dto.location.address.trim() : null,
-      city: dto.location?.city ? dto.location.city.trim() : null,
-      country: dto.location?.country ? dto.location.country.trim() : null
-    }
+    const location: Location = new Location();
+
+    location.setLat(dto.location.lat);
+    location.setLng(dto.location.lng);
+    location.setAddress(dto.location?.address);
+    location.setCity(dto.location?.city);
+    location.setCountry(dto.location?.country);
 
     hotel.id = dto.hotel_id.trim();
     hotel.destination_id = dto?.destination_id;
     hotel.name = dto.hotel_name.trim();
-    hotel.location = locate;
+    hotel.location = location;
     hotel.description = dto?.details ? dto.details.trim() : null;
     hotel.amenities = {
       general: dto?.amenities?.general ? dto.amenities.general.map(ele => ele.trim()) : [],
