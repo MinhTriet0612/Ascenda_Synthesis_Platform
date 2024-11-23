@@ -31,11 +31,11 @@ export class AcmeQueryMapper implements SupplierQueryMapper {
     location.setCity(dto.City);
     location.setCountry(dto.Country);
 
-    hotel.id = dto.Id.trim();
-    hotel.destination_id = dto.DestinationId;
-    hotel.name = dto.Name.trim()
-    hotel.location = location;
-    hotel.description = dto.Description.trim();
+    hotel.setId(dto.Id);
+    hotel.setDestinationId(dto.DestinationId);
+    hotel.setName(dto.Name);
+    hotel.setLocation(location);
+    hotel.setDescription(dto.Description);
 
     return hotel;
   }
