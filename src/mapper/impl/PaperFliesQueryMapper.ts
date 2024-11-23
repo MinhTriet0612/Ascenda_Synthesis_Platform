@@ -1,3 +1,4 @@
+import { Amentity } from "../../model/Amentity";
 import { Hotel } from "../../model/Hotel";
 import { Location } from "../../model/Location";
 import { PaperFliesQueryDTO } from "../../queryDTOs/PaperFliesQueryDTO";
@@ -25,22 +26,23 @@ export class PaperFliesQueryMapper implements SupplierQueryMapper {
     const hotel = new Hotel();
     const booking_conditions = dto?.booking_conditions.map(ele => ele.trim());
     const location: Location = new Location();
+    const amenities = new Amentity();
 
-    location.setLat(dto.location.lat);
-    location.setLng(dto.location.lng);
-    location.setAddress(dto.location?.address);
-    location.setCity(dto.location?.city);
-    location.setCountry(dto.location?.country);
+    location.setLat(dto?.location?.lat);
+    location.setLng(dto?.location?.lng);
+    location.setAddress(dto?.location?.address);
+    location.setCity(dto?.location?.city);
+    location.setCountry(dto?.location?.country);
+
+    amenities.setGeneral(dto?.amenities?.general);
+    amenities.setRoom(dto?.amenities?.room);
 
     hotel.id = dto.hotel_id.trim();
     hotel.destination_id = dto?.destination_id;
     hotel.name = dto.hotel_name.trim();
     hotel.location = location;
     hotel.description = dto?.details ? dto.details.trim() : null;
-    hotel.amenities = {
-      general: dto?.amenities?.general ? dto.amenities.general.map(ele => ele.trim()) : [],
-      room: dto?.amenities?.room ? dto.amenities.room.map(ele => ele.trim()) : []
-    }
+    hotel.amenities = amenities;
 
     hotel.images = {
       site: dto?.images?.site ? dto.images.site.map(ele => {

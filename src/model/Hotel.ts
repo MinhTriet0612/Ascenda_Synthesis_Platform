@@ -14,6 +14,7 @@ export class Hotel {
 
   constructor() {
     this.location = new Location();
+    this.amenities = new Amentity();
   }
 
   public setLocation(location: Location): void {
@@ -46,17 +47,8 @@ export class Hotel {
       return;
     }
 
-    if (!this?.amenities) {
-      this.amenities = amenities;
-    }
-
-    if ((!this?.amenities?.general || this.amenities?.general.length === 0) && amenities.general) {
-      this.amenities.general = amenities.general;
-    }
-
-    if ((!this?.amenities?.room || this.amenities?.room.length === 0) && amenities.room) {
-      this.amenities.room = amenities.room;
-    }
+    this.amenities.setGeneral(amenities.general);
+    this.amenities.setRoom(amenities.room);
   }
 
   public setImages(images: ImageStore): void {

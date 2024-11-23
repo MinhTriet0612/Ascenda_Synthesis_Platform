@@ -1,3 +1,4 @@
+import { Amentity } from "../../model/Amentity";
 import { Hotel } from "../../model/Hotel";
 import { Location } from "../../model/Location";
 import { PatagoniaQueryDTO } from "../../queryDTOs/PatagoniaQueryDTO";
@@ -29,11 +30,9 @@ export class PatagoniaQueryMapper implements SupplierQueryMapper {
     location.setLng(dto.lng);
     location.setAddress(dto.address);
 
-
-    const amentites = {
-      general: [],
-      room: dto.amenities ? dto.amenities.map(ele => ele.trim()) : []
-    }
+    const amenities = new Amentity();
+    amenities.setGeneral([]);
+    amenities.setRoom(dto.amenities);
 
     const images = {
       site: [],
@@ -58,7 +57,7 @@ export class PatagoniaQueryMapper implements SupplierQueryMapper {
     hotel.name = dto?.name ? dto.name.trim() : null;
     hotel.location = location;
     hotel.description = dto?.info ? dto.info.trim() : null;
-    hotel.amenities = amentites;
+    hotel.amenities = amenities;
     hotel.images = images;
 
     return hotel;
