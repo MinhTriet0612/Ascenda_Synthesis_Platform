@@ -30,3 +30,4 @@ export class PatagoniaOperation extends SupplierOperation implements Operation<H
     });
   }
 }
+
