@@ -1,24 +1,15 @@
-import { HotelStoreContext } from "./context/HotelStoreContext";
-import { SupplierOperationFactory } from "./factory/SupplierFactory";
-import { Hotel } from "./model/Hotel";
-import { Pipeline } from "./pipeline/Pipeline";
+import { SupplierController } from "./controller/SupplierController";
 
 async function main() {
-  const ctx: HotelStoreContext = {
-    hotelStore: new Map<string, Hotel>()
-  }
+  const controller = new SupplierController();
 
-  const pipeLine: Pipeline<HotelStoreContext> = new Pipeline<HotelStoreContext>();
+  controller
+    .addUrlQuery("https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme")
+    .addUrlQuery("https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/paperflies")
+    .addUrlQuery("https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/patagonia");
 
-  pipeLine
-    .addOperation(SupplierOperationFactory.getOperationFactory("https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme"))
-    .addOperation(SupplierOperationFactory.getOperationFactory("https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/paperflies"))
-    .addOperation(SupplierOperationFactory.getOperationFactory("https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/patagonia"));
-
-  await pipeLine.execute(ctx);
-
-  console.dir(ctx.hotelStore, { depth: null });
-
+  const ctx = await controller.getCtx();
+  console.dir(ctx, { depth: null });
 }
 
 

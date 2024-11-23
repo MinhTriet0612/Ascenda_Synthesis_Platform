@@ -1,4 +1,5 @@
 import { HotelStoreContext } from "../context/HotelStoreContext";
+import { OperationType } from "../controller/constraints/OperationType";
 import { AcmeOperation } from "../operations/impl/AcmeOperation";
 import { PaperFliesOperation } from "../operations/impl/PaperFliesOperation";
 import { PatagoniaOperation } from "../operations/impl/PatagoniaOperation";
@@ -10,11 +11,11 @@ export class SupplierOperationFactory {
   constructor() {
   }
 
-  private static operationMap: Map<string, Operation<HotelStoreContext>> = new Map<string, Operation<HotelStoreContext>>(
+  private static operationMap: Map<string, OperationType> = new Map<string, OperationType>(
     [
-      ['https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme', new AcmeOperation("https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme")],
-      ['https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/paperflies', new PaperFliesOperation("https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/paperflies")],
-      ['https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/patagonia', new PatagoniaOperation("https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/patagonia")]
+      ['https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme', OperationType.ACME],
+      ['https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/paperflies', OperationType.PAPERFLIES],
+      ['https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/patagonia', OperationType.PATAGONIA]
     ]
   );
 
@@ -23,11 +24,21 @@ export class SupplierOperationFactory {
       throw new Error('No operation found for the given URL');
     }
 
-    return this.operationMap.get(url);
+    switch (this.operationMap.get(url)) {
+      case OperationType.ACME:
+        return new AcmeOperation(url);
+      case OperationType.PAPERFLIES:
+        return new PaperFliesOperation(url);
+      case OperationType.PATAGONIA:
+        return new PatagoniaOperation(url);
+      default:
+        throw new Error("No operation found");
+    }
+
   }
 
-  public static addOperationFactory(url: string, operation: Operation<HotelStoreContext>): void {
-    this.operationMap.set(url, operation);
+  public static addOperationFactory(url: string, operationType: OperationType): void {
+    this.operationMap.set(url, operationType);
   }
 };
 

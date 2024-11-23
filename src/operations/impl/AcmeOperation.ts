@@ -7,7 +7,6 @@ import { Operation } from "../Operation";
 import { SupplierOperation } from "../SupplierOperation";
 
 export class AcmeOperation extends SupplierOperation implements Operation<HotelStoreContext> {
-  // private acmeURL: String = 'https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme';
 
   public constructor(url: string) {
     super(url);
