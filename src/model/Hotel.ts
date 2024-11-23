@@ -15,6 +15,19 @@ export class Hotel {
   constructor() {
     this.location = new Location();
     this.amenities = new Amentity();
+    this.images = new ImageStore();
+  }
+
+  public setId(id: string): void {
+    if (!this?.id && id) {
+      this.id = id;
+    }
+  }
+
+  public setDestinationId(destination_id: number): void {
+    if (!this?.destination_id && destination_id) {
+      this.destination_id = destination_id;
+    }
   }
 
   public setLocation(location: Location): void {
@@ -47,8 +60,8 @@ export class Hotel {
       return;
     }
 
-    this.amenities.setGeneral(amenities.general);
-    this.amenities.setRoom(amenities.room);
+    this.amenities.setGeneral(amenities?.general);
+    this.amenities.setRoom(amenities?.room);
   }
 
   public setImages(images: ImageStore): void {
@@ -56,24 +69,19 @@ export class Hotel {
       return;
     }
 
-    if (!this?.images)
-      this.images = images;
-
-    if ((!this?.images?.site && this?.images?.site.length === 0) && images?.site)
-      this.images.site = images.site;
-
-    if ((!this?.images?.rooms || this?.images?.rooms.length === 0) && images?.rooms)
-      this.images.rooms = images.rooms;
-
-
-    if ((!this?.images?.amenities || this?.images?.amenities.length === 0) && images?.amenities) {
-      this.images.amenities = images.amenities;
-    }
+    this.images.setRooms(images?.rooms);
+    this.images.setSite(images?.site);
+    this.images.setAmenities(images?.amenities);
   }
 
   public setBookingConditions(booking_conditions: string[]): void {
-    if ((!this?.booking_conditions || this?.booking_conditions.length === 0) && booking_conditions)
-      this.booking_conditions = booking_conditions
+    if (this?.booking_conditions && this?.booking_conditions.length !== 0) {
+      return;
+    }
+
+    if (booking_conditions) {
+      this.booking_conditions = booking_conditions;
+    }
   }
 
   public updateHotelData(hotelTmp: Hotel): void {
