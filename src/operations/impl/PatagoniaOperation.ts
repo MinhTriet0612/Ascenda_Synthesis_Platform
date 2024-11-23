@@ -12,7 +12,7 @@ export class PatagoniaOperation extends SupplierOperation implements Operation<H
     super(url);
   }
 
-  public async execute(ctx: HotelStoreContext) {
+  public async execute(context: HotelStoreContext) {
     const rawData: PatagoniaQueryDTO[] = await super.fetchHotelData()
 
     const mapper: MapperContext = new MapperContext().setMapper(MapperType.Patagonia);
@@ -20,12 +20,12 @@ export class PatagoniaOperation extends SupplierOperation implements Operation<H
 
     hotels.forEach((hotelTmp) => {
       const hotelId = hotelTmp.id;
-      if (!ctx.hotelStore.has(hotelId)) {
-        ctx.hotelStore.set(hotelId, hotelTmp);
+      if (!context.hotelStore.has(hotelId)) {
+        context.hotelStore.set(hotelId, hotelTmp);
         return;
       }
 
-      const hotel = ctx.hotelStore.get(hotelId);
+      const hotel = context.hotelStore.get(hotelId);
       hotel.updateHotelData(hotelTmp);
     });
   }

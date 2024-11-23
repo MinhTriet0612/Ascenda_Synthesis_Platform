@@ -41,6 +41,6 @@ export class SupplierController {
 
     return Array.from(this.context.hotelStore.values())
       .filter((hotel) => hotel_ids.includes(hotel.id))
-      .filter((hotel) => destination_ids.includes(hotel.destination_id));
+      // .filter((hotel) => destination_ids.includes(hotel.destination_id));
   }
 }

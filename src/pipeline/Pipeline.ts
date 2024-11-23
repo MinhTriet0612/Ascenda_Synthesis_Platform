@@ -15,7 +15,7 @@ export class Pipeline<T> {
   public async execute(data: T): Promise<void> {
     for (const operation of this.operations) {
       await operation.execute(data).then(() => {
-        console.log('Operation completed');
+        console.log(operation.constructor.name + " executed");
       });
     }
   }
