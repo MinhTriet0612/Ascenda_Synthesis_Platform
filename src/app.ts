@@ -1,8 +1,6 @@
 import { HotelStoreContext } from "./context/HotelStoreContext";
+import { SupplierOperationFactory } from "./factory/SupplierFactory";
 import { Hotel } from "./model/Hotel";
-import { AcmeOperation } from "./operations/impl/AcmeOperation";
-import { PaperFliesOperation } from "./operations/impl/PaperFliesOperation";
-import { PatagoniaOperation } from "./operations/impl/PatagoniaOperation";
 import { Pipeline } from "./pipeline/Pipeline";
 
 async function main() {
@@ -13,15 +11,13 @@ async function main() {
   const pipeLine: Pipeline<HotelStoreContext> = new Pipeline<HotelStoreContext>();
 
   pipeLine
-    .addOperation(new AcmeOperation())
-    .addOperation(new PaperFliesOperation())
-    .addOperation(new PatagoniaOperation());
+    .addOperation(SupplierOperationFactory.getOperationFactory("https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme"))
+    .addOperation(SupplierOperationFactory.getOperationFactory("https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/paperflies"))
+    .addOperation(SupplierOperationFactory.getOperationFactory("https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/patagonia"));
 
   await pipeLine.execute(ctx);
 
   console.dir(ctx.hotelStore, { depth: null });
-
-
 
 }
 

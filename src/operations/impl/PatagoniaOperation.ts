@@ -7,10 +7,13 @@ import { Operation } from "../Operation";
 import { SupplierOperation } from "../SupplierOperation";
 
 export class PatagoniaOperation extends SupplierOperation implements Operation<HotelStoreContext> {
-  private patagoniaURL: String = 'https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/patagonia';
+
+  public constructor(url: string) {
+    super(url);
+  }
 
   public async execute(ctx: HotelStoreContext) {
-    const rawData: PatagoniaQueryDTO[] = await super.fetchHotelData(this.patagoniaURL)
+    const rawData: PatagoniaQueryDTO[] = await super.fetchHotelData()
 
     const mapper: MapperContext = new MapperContext().setMapper(MapperType.Patagonia);
     const hotels: Hotel[] = rawData.map((dto: PatagoniaQueryDTO) => mapper.executeMapping(dto));

@@ -7,11 +7,15 @@ import { Operation } from "../Operation";
 import { SupplierOperation } from "../SupplierOperation";
 
 export class AcmeOperation extends SupplierOperation implements Operation<HotelStoreContext> {
+  // private acmeURL: String = 'https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme';
 
-  private acmeURL: String = 'https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme';
+  public constructor(url: string) {
+    super(url);
+  }
+
 
   public async execute(ctx: HotelStoreContext) {
-    const rawData: AcmeQueryDTO[] = await super.fetchHotelData(this.acmeURL);
+    const rawData: AcmeQueryDTO[] = await super.fetchHotelData();
     const mapper: MapperContext = new MapperContext().setMapper(MapperType.Acme);
 
     const hotels: Hotel[] = rawData.map((dto: AcmeQueryDTO) => mapper.executeMapping(dto));

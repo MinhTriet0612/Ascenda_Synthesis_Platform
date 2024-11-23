@@ -8,10 +8,13 @@ import { SupplierOperation } from "../SupplierOperation";
 
 
 export class PaperFliesOperation extends SupplierOperation implements Operation<HotelStoreContext> {
-  private patagoniaURL: String = 'https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/paperflies';
+  public constructor(url: string) {
+    super(url);
+  }
 
   public async execute(ctx: HotelStoreContext) {
-    const data: PaperFliesQueryDTO[] = await super.fetchHotelData(this.patagoniaURL);
+    const data: PaperFliesQueryDTO[] = await super.fetchHotelData();
+
     const mapper: MapperContext = new MapperContext().setMapper(MapperType.PaperFlies);
 
     const hotels: Hotel[] = data.map((dto: PaperFliesQueryDTO) => mapper.executeMapping(dto));
