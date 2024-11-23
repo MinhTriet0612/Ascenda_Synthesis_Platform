@@ -20,7 +20,7 @@ export class Hotel {
 
   public setId(id: string): void {
     if (!this?.id && id) {
-      this.id = id;
+      this.id = id.trim();
     }
   }
 
@@ -51,7 +51,7 @@ export class Hotel {
 
   public setName(name: string): void {
     if (!this?.name && name) {
-      this.name = name;
+      this.name = name.trim();
     }
   }
 

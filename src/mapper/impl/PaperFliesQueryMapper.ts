@@ -61,39 +61,14 @@ export class PaperFliesQueryMapper implements SupplierQueryMapper {
     }) : []);
 
 
-
-    hotel.id = dto.hotel_id.trim();
-    hotel.destination_id = dto?.destination_id;
-    hotel.name = dto.hotel_name.trim();
-    hotel.location = location;
-    hotel.description = dto?.details ? dto.details.trim() : null;
-    hotel.amenities = amenities;
-    hotel.images = images;
-    //   = {
-    //   site: dto?.images?.site ? dto.images.site.map(ele => {
-    //     return {
-    //       link: ele.link.trim(),
-    //       description: ele.caption.trim()
-    //     }
-    //   }) : [],
-    //
-    //     rooms: dto?.images?.rooms ? dto.images.rooms.map(ele => {
-    //       return {
-    //         link: ele.link.trim(),
-    //         description: ele.caption.trim()
-    //       }
-    //     }) : [],
-    //
-    //       amenities: dto?.images?.amenities ? dto.images.amenities.map(ele => {
-    //         return {
-    //           link: ele.link.trim(),
-    //           description: ele.caption.trim()
-    //         }
-    //       }) : []
-    // }
-
-
-    hotel.booking_conditions = booking_conditions;
+    hotel.setId(dto.hotel_id);
+    hotel.setDestinationId(dto.destination_id);
+    hotel.setName(dto.hotel_name);
+    hotel.setLocation(location);
+    hotel.setDescription(dto.details);
+    hotel.setAmenities(amenities);
+    hotel.setImages(images);
+    hotel.setBookingConditions(booking_conditions);
 
     return hotel;
   }
