@@ -1,32 +1,32 @@
-import { HotelStoreContext } from "../../context/HotelStoreContext";
-import { MapperContext } from "../../mapper/MapperContext";
-import { MapperType } from "../../mapper/constrains/MapperType";
+import { HotelStore } from "../../context/HotelStore";
+import { PaperFliesQueryMapper } from "../../mapper/impl/PaperFliesQueryMapper";
 import { Hotel } from "../../model/Hotel";
 import { PaperFliesQueryDTO } from "../../queryDTOs/PaperFliesQueryDTO";
 import { Operation } from "../Operation";
 import { SupplierOperation } from "../SupplierOperation";
 
 
-export class PaperFliesOperation extends SupplierOperation implements Operation<HotelStoreContext> {
+export class PaperFliesOperation extends SupplierOperation implements Operation<HotelStore> {
   public constructor(url: string) {
     super(url);
   }
 
-  public async execute(context: HotelStoreContext) {
-    const data: PaperFliesQueryDTO[] = await super.fetchHotelData();
+  public async execute(hotelStore: HotelStore) {
+    const rawData: PaperFliesQueryDTO[] = await super.fetchHotelData();
+    const hotelsTmp: Hotel[] = rawData.map((dto: PaperFliesQueryDTO) => PaperFliesQueryMapper.getInstance().mapToEntity(dto));
 
-    const mapper: MapperContext = new MapperContext().setMapper(MapperType.PaperFlies);
+    this.mergeData(hotelsTmp, hotelStore);
+  }
 
-    const hotels: Hotel[] = data.map((dto: PaperFliesQueryDTO) => mapper.executeMapping(dto));
-
-    hotels.forEach((hotelTmp) => {
+  public mergeData(hotelsTmp: Hotel[], hotelStore: HotelStore): void {
+    hotelsTmp.forEach((hotelTmp) => {
       const hotelId = hotelTmp.id;
-      if (!context.hotelStore.has(hotelId)) {
-        context.hotelStore.set(hotelId, hotelTmp);
+      if (!hotelStore.data.has(hotelId)) {
+        hotelStore.data.set(hotelId, hotelTmp);
         return;
       }
 
-      const hotel = context.hotelStore.get(hotelId);
+      const hotel = hotelStore.data.get(hotelId);
       hotel.updateHotelData(hotelTmp);
 
       // just a description overwrite
@@ -41,5 +41,4 @@ export class PaperFliesOperation extends SupplierOperation implements Operation<
     });
 
   }
-
 }

@@ -1,34 +1,21 @@
-import { HotelStoreContext } from "../../context/HotelStoreContext";
-import { MapperContext } from "../../mapper/MapperContext";
-import { MapperType } from "../../mapper/constrains/MapperType";
+import { HotelStore } from "../../context/HotelStore";
+import { AcmeQueryMapper } from "../../mapper/impl/AcmeQueryMapper";
 import { Hotel } from "../../model/Hotel";
 import { AcmeQueryDTO } from "../../queryDTOs/AcmeQueryDTO";
 import { Operation } from "../Operation";
 import { SupplierOperation } from "../SupplierOperation";
 
-export class AcmeOperation extends SupplierOperation implements Operation<HotelStoreContext> {
+export class AcmeOperation extends SupplierOperation implements Operation<HotelStore> {
 
   public constructor(url: string) {
     super(url);
   }
 
-
-  public async execute(context: HotelStoreContext) {
+  public async execute(hotelStore: HotelStore) {
     const rawData: AcmeQueryDTO[] = await super.fetchHotelData();
-    const mapper: MapperContext = new MapperContext().setMapper(MapperType.Acme);
+    const hotelsTmp: Hotel[] = rawData.map((dto: AcmeQueryDTO) => AcmeQueryMapper.getInstance().mapToEntity(dto)
+    );
 
-    const hotels: Hotel[] = rawData.map((dto: AcmeQueryDTO) => mapper.executeMapping(dto));
-
-    hotels.forEach((hotelTmp) => {
-      const hotelId = hotelTmp.id;
-      if (!context.hotelStore.has(hotelId)) {
-        context.hotelStore.set(hotelId, hotelTmp);
-        return;
-      }
-
-      const hotel = context.hotelStore.get(hotelId);
-      hotel.updateHotelData(hotelTmp);
-    });
+    super.mergeData(hotelsTmp, hotelStore);
   }
-
 }

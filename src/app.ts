@@ -2,7 +2,7 @@ import { SupplierController } from "./controller/SupplierController";
 
 
 function parseArgs(args: string[]): { hotel_ids: string[], destination_ids: number[] } {
-  if (args.length < 2) {
+  if (args.length !== 2) {
     throw new Error("Invalid arguments, please input hotel_ids and destination_ids");
   }
 
@@ -20,6 +20,8 @@ function parseArgs(args: string[]): { hotel_ids: string[], destination_ids: numb
 }
 
 async function main() {
+  const { hotel_ids, destination_ids } = parseArgs(process.argv.slice(2));
+
   const supplierController = new SupplierController();
 
   supplierController
@@ -27,13 +29,9 @@ async function main() {
     .addUrlQuery("https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/paperflies")
     .addUrlQuery("https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/patagonia");
 
-  await supplierController.execute();
+  const hotels = await supplierController.startFetching(hotel_ids, destination_ids);
 
-  const { hotel_ids, destination_ids } = parseArgs(process.argv.slice(2));
-  const hotelsFiltered = supplierController.filterByHotelIdsAndDestionationIds(hotel_ids, destination_ids);
-
-  console.log(JSON.stringify(hotelsFiltered, null, 2));
+  console.log(JSON.stringify(hotels, null, 2));
 }
-
 
 main();

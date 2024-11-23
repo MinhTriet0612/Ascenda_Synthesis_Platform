@@ -1,4 +1,4 @@
-import { HotelStoreContext } from "../context/HotelStoreContext";
+import { HotelStore } from "../context/HotelStore";
 import { OperationType } from "../controller/constraints/OperationType";
 import { AcmeOperation } from "../operations/impl/AcmeOperation";
 import { PaperFliesOperation } from "../operations/impl/PaperFliesOperation";
@@ -19,7 +19,7 @@ export class SupplierOperationFactory {
     ]
   );
 
-  public static getOperationFactory(url: string): Operation<HotelStoreContext> {
+  public static getOperationFactory(url: string): Operation<HotelStore> {
     if (!this.operationMap.has(url)) {
       throw new Error('No operation found for the given URL');
     }
@@ -34,7 +34,6 @@ export class SupplierOperationFactory {
       default:
         throw new Error("No operation found");
     }
-
   }
 
   public static addOperationFactory(url: string, operationType: OperationType): void {

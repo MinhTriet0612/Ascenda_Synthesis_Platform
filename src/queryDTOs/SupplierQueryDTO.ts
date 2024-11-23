@@ -1,5 +1,4 @@
 
 
-export interface  SupplierQueryDTO {
-
+export interface SupplierQueryDTO {
 }

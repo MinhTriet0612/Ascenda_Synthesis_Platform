@@ -1,5 +1,5 @@
-import { SupplierQueryDTO } from "../queryDTOs/SupplierQueryDTO";
-
+import { HotelStore } from "../context/HotelStore";
+import { Hotel } from "../model/Hotel";
 
 export abstract class SupplierOperation {
   private url: string;
@@ -8,10 +8,22 @@ export abstract class SupplierOperation {
     this.url = url;
   }
 
-  public async fetchHotelData(): Promise<any> {
+  public async fetchHotelData() {
     const response = await fetch(this.url);
     const data = await response.json();
     return data;
+  }
+
+  public mergeData(hotelsTmp: Hotel[], hotelStore: HotelStore) {
+    hotelsTmp.forEach((hotelTmp) => {
+      const hotelId = hotelTmp.id;
+      if (!hotelStore.data.has(hotelId)) {
+        hotelStore.data.set(hotelId, hotelTmp);
+        return;
+      }
+      const hotel = hotelStore.data.get(hotelId);
+      hotel.updateHotelData(hotelTmp);
+    });
   }
 }
 

@@ -12,7 +12,7 @@ export class Pipeline<T> {
     return this;
   }
 
-  public async execute(data: T): Promise<void> {
+  public async run(data: T): Promise<void> {
     for (const operation of this.operations) {
       await operation.execute(data).then(() => {
         console.log(operation.constructor.name + " executed");
