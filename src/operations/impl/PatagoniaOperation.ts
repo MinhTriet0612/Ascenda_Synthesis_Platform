@@ -4,12 +4,13 @@ import { MapperType } from "../../mapper/constrains/MapperType";
 import { Hotel } from "../../model/Hotel";
 import { PatagoniaQueryDTO } from "../../queryDTOs/PatagoniaQueryDTO";
 import { Operation } from "../Operation";
+import { SupplierOperation } from "../SupplierOperation";
 
-export class PatagoniaOperation implements Operation<HotelStoreContext> {
+export class PatagoniaOperation extends SupplierOperation implements Operation<HotelStoreContext> {
   private patagoniaURL: String = 'https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/patagonia';
 
   public async execute(ctx: HotelStoreContext) {
-    const rawData: PatagoniaQueryDTO[] = await this.fetchHotelData(this.patagoniaURL)
+    const rawData: PatagoniaQueryDTO[] = await super.fetchHotelData(this.patagoniaURL)
 
     const mapper: MapperContext = new MapperContext().setMapper(MapperType.Patagonia);
     const hotels: Hotel[] = rawData.map((dto: PatagoniaQueryDTO) => mapper.executeMapping(dto));
@@ -24,12 +25,5 @@ export class PatagoniaOperation implements Operation<HotelStoreContext> {
       const hotel = ctx.hotelStore.get(hotelId);
       hotel.updateHotelData(hotelTmp);
     });
-
-  }
-
-  private async fetchHotelData(url: String): Promise<PatagoniaQueryDTO[]> {
-    const response = await fetch(url.toString());
-    const data = await response.json();
-    return data;
   }
 }

@@ -31,6 +31,9 @@ export class MapperContext {
   }
 
   public executeMapping(dto: SupplierQueryDTO): Hotel {
+    if (!this.mapper) {
+      throw new Error('Mapper is not set');
+    }
     return this.mapper.mapToEntity(dto);
   }
 }

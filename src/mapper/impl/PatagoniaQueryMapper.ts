@@ -6,7 +6,7 @@ import { SupplierQueryMapper } from "../SupplierQueryMapper";
 export class PatagoniaQueryMapper implements SupplierQueryMapper {
   private static instance: PatagoniaQueryMapper;
 
-  constructor() {
+  private constructor() {
     if (PatagoniaQueryMapper?.instance) {
       return PatagoniaQueryMapper.instance;
     }

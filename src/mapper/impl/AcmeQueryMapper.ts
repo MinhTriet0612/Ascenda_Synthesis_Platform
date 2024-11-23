@@ -7,7 +7,7 @@ import { SupplierQueryMapper } from "../SupplierQueryMapper";
 export class AcmeQueryMapper implements SupplierQueryMapper {
   private static instance: AcmeQueryMapper;
 
-  constructor() {
+  private constructor() {
     if (AcmeQueryMapper?.instance) {
       return AcmeQueryMapper.instance;
     }

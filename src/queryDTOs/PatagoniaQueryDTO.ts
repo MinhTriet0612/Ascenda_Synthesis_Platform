@@ -9,15 +9,15 @@ export interface PatagoniaQueryDTO extends SupplierQueryDTO {
   address: string;
   info: string;
   amenities: string[];
-  images: ImageStore;
+  images: ImageStoreDTO;
 }
 
-interface ImageStore {
-  rooms: Image[];
-  amenities: Image[]
+interface ImageStoreDTO {
+  rooms: ImageDTO[];
+  amenities: ImageDTO[]
 }
 
-interface Image {
+interface ImageDTO {
   url: string,
   description: string
 }

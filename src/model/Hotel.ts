@@ -14,7 +14,7 @@ export class Hotel {
 
   constructor() { }
 
-  setLocation(locationTmp: Location): void {
+  public setLocation(locationTmp: Location): void {
     const location: Location = this?.location;
     if (!location)
       this.location = locationTmp
@@ -30,17 +30,17 @@ export class Hotel {
       location.lng = locationTmp.lng;
   }
 
-  setDescription(description: string): void {
+  public setDescription(description: string): void {
     if (!this?.description && description)
       this.description = description;
   }
 
-  setName(name: string): void {
+  public setName(name: string): void {
     if (!this?.name && name)
       this.name = name;
   }
 
-  setAmenities(amenities: Amentity): void {
+  public setAmenities(amenities: Amentity): void {
     if (!this?.amenities && amenities)
       this.amenities = amenities;
 
@@ -51,7 +51,7 @@ export class Hotel {
       this.amenities.room = amenities.room;
   }
 
-  setImages(images: ImageStore): void {
+  public setImages(images: ImageStore): void {
     if (!this?.images && images)
       this.images = images;
 
@@ -68,7 +68,7 @@ export class Hotel {
 
   }
 
-  setBookingConditions(booking_conditions: string[]): void {
+  public setBookingConditions(booking_conditions: string[]): void {
     if ((!this?.booking_conditions || this?.booking_conditions.length === 0) && booking_conditions)
       this.booking_conditions = booking_conditions
   }

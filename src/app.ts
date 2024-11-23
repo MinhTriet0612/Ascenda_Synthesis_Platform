@@ -6,21 +6,24 @@ import { PatagoniaOperation } from "./operations/impl/PatagoniaOperation";
 import { Pipeline } from "./pipeline/Pipeline";
 
 async function main() {
-
   const ctx: HotelStoreContext = {
     hotelStore: new Map<string, Hotel>()
   }
 
-  const pineLine: Pipeline<HotelStoreContext> = new Pipeline<HotelStoreContext>();
+  const pipeLine: Pipeline<HotelStoreContext> = new Pipeline<HotelStoreContext>();
 
-  pineLine
+  pipeLine
     .addOperation(new AcmeOperation())
     .addOperation(new PaperFliesOperation())
     .addOperation(new PatagoniaOperation());
 
-  await pineLine.execute(ctx);
+  await pipeLine.execute(ctx);
 
   console.dir(ctx.hotelStore, { depth: null });
+
+
+
 }
+
 
 main();

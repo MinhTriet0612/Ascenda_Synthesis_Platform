@@ -6,7 +6,7 @@ import { SupplierQueryMapper } from "../SupplierQueryMapper";
 export class PaperFliesQueryMapper implements SupplierQueryMapper {
   private static instance: PaperFliesQueryMapper;
 
-  constructor() {
+  private constructor() {
     if (PaperFliesQueryMapper?.instance) {
       return PaperFliesQueryMapper.instance;
     }
