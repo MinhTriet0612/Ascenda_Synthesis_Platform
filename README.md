@@ -1,4 +1,56 @@
-[![wakatime](https://wakatime.com/badge/user/018c1be4-f54c-4a1b-9251-889508522a9a/project/e2d707f5-2f37-4d56-b8ba-6bf6b4a7ab36.svg)](https://wakatime.com/@minhtriet06/projects/xnpvwfjalu?start=2024-11-18&end=2024-11-24)
-**OOP Design Diagram**: [Lucid Chart Link](https://lucid.app/lucidchart/14a45024-22c9-4a83-a6ac-f402a05bf762/edit?viewport_loc=-2412%2C-879%2C2845%2C1394%2C0_0&invitationId=inv_6045aaab-51b0-4e3a-af0e-2183e8c4eab1)  
-**Progress**: [Notion Link](https://www.notion.so/Assignment-Workflow-1455ee316226801b80f9c973b3a08411?pvs=4)  
 
+
+[![wakatime](https://wakatime.com/badge/user/018c1be4-f54c-4a1b-9251-889508522a9a/project/e2d707f5-2f37-4d56-b8ba-6bf6b4a7ab36.svg)](https://wakatime.com/@minhtriet06/projects/xnpvwfjalu?start=2024-11-18&end=2024-11-24)
+
+# **Supplier Data Aggregator**
+
+## **Overview**
+The **Supplier Data Aggregator** is a TypeScript-based application designed to synthesize data from multiple suppliers. It fetches raw data, maps it to a standardized format, and returns a consolidated list of formatted data to the user. The app supports scalability by allowing new suppliers to be easily integrated.
+
+---
+
+## **Features**
+- Fetch data from multiple suppliers via their URLs.
+- Map supplier-specific raw data into a standardized format.
+- Queue-based operation pipeline for sequential processing.
+- Easy integration for adding new suppliers dynamically.
+
+---
+
+## **Architecture**
+
+### **Components**
+1. **Controller**:
+   - Allocates operations to the corresponding supplier handler based on the URL.
+   - Manages a queue of operations for processing supplier data.
+
+2. **Operation**:
+   - Fetches raw data from the assigned supplier.
+   - Each operation is unique to a specific supplier.
+
+3. **Mapper**:
+   - Maps supplier-specific data into a standardized format for consistent outputs.
+
+### **Design Patterns**
+
+- **Factory Pattern**:  
+  Creates new operation instances dynamically for each supplier URL.
+- **Pipeline Pattern**:  
+  Ensures sequential execution of operations in a modular and controlled manner.
+
+---
+
+## **Tech Stack**
+- **Language**: [TypeScript](https://www.typescriptlang.org/)  
+- **Testing Framework**: [Jest](https://jestjs.io/)
+
+---
+
+## **Setup Instructions**
+
+### **1. Prerequisites**
+Ensure you have the following installed:
+- [Node.js](https://nodejs.org/) (v14 or higher)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+
+### **2. Clone the Repository**
