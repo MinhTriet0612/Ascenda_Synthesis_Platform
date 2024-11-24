@@ -68,6 +68,7 @@ The **Ascenda Synthesis Platform** is a TypeScript-based application designed to
 ---
 
 ## **Architecture**
+- Inspire by the **Pipeline Pattern**, the application is designed to process operations sequentially in a controlled manner. 
 
 ### **Components**
 1. **Controller**:
