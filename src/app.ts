@@ -1,3 +1,4 @@
+import { SupplierController } from "./controller/SupplierController";
 
 
 function parseArgs(args: string[]): { hotel_ids: string[], destination_ids: number[] } {
@@ -21,18 +22,17 @@ function parseArgs(args: string[]): { hotel_ids: string[], destination_ids: numb
 
 async function main() {
   const { hotel_ids, destination_ids } = parseArgs(process.argv.slice(2));
-  console.log(`hotel_ids: ${hotel_ids}, destination_ids: ${destination_ids}`);
 
-  // const supplierController = new SupplierController();
-  //
-  // supplierController
-  //   .addUrlQuery("https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme")
-  //   .addUrlQuery("https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/paperflies")
-  //   .addUrlQuery("https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/patagonia");
-  //
-  // const hotels = await supplierController.startFetching(hotel_ids, destination_ids);
-  //
-  // console.log(JSON.stringify(hotels, null, 2));
+  const supplierController = new SupplierController();
+
+  supplierController
+    .addUrlQuery("https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme")
+    .addUrlQuery("https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/paperflies")
+    .addUrlQuery("https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/patagonia");
+
+  const hotels = await supplierController.startFetching(hotel_ids, destination_ids);
+
+  console.log(JSON.stringify(hotels, null, 2));
 }
 
 main();
