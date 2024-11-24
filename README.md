@@ -88,6 +88,41 @@ The **Supplier Data Aggregator** is a TypeScript-based application designed to s
 - **Pipeline Pattern**:  
   Ensures sequential execution of operations in a modular and controlled manner.
 
+
+---
+## **Testing**
+### **Code Coverage**
+```shell 
+---------------------------|---------|----------|---------|---------|-------------------------
+File                       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s       
+---------------------------|---------|----------|---------|---------|-------------------------
+All files                  |   90.71 |    76.07 |   94.28 |   90.44 |                         
+ controller                |      80 |    83.33 |   71.42 |   77.77 |                         
+  OperationType.ts         |     100 |      100 |     100 |     100 |                         
+  SupplierController.ts    |      75 |       75 |   66.66 |      75 | 30-32,39                
+ factory                   |   92.85 |       80 |   66.66 |   92.85 |                         
+  SupplierFactory.ts       |   92.85 |       80 |   66.66 |   92.85 | 34                      
+ logger                    |    87.5 |        0 |     100 |    87.5 |                         
+  Logger.ts                |    87.5 |        0 |     100 |    87.5 | 14                      
+ mapper                    |     100 |    88.54 |     100 |     100 |                         
+  AcmeQueryMapper.ts       |     100 |      100 |     100 |     100 |                         
+  PaperFliesQueryMapper.ts |     100 |    88.04 |     100 |     100 | 11-39                   
+  PatagoniaQueryMapper.ts  |     100 |      100 |     100 |     100 |                         
+ model                     |    92.7 |    80.32 |     100 |   92.55 |                         
+  Amentity.ts              |   86.66 |       80 |     100 |   84.61 | 15,27                   
+  Hotel.ts                 |     100 |    82.45 |     100 |     100 | 23-29,49-55,65-66,74-80 
+  ImageStore.ts            |   81.25 |    66.66 |     100 |   81.25 | 15,27,39                
+  Location.ts              |    91.3 |    80.55 |     100 |    91.3 | 14,26                   
+ operations                |      70 |       50 |   83.33 |      70 |                         
+  SupplierOperation.ts     |      70 |       50 |   83.33 |      70 | 18,23-24,36-37,42       
+ operations/impl           |   82.05 |     4.34 |     100 |   80.55 |                         
+  AcmeOperation.ts         |     100 |      100 |     100 |     100 |                         
+  PaperFliesOperation.ts   |   69.56 |     4.34 |     100 |   68.18 | 31-41,47                
+  PatagoniaOperation.ts    |     100 |      100 |     100 |     100 |                         
+ pipeline                  |     100 |      100 |     100 |     100 |                         
+  Pipeline.ts              |     100 |      100 |     100 |     100 |                         
+---------------------------|---------|----------|---------|---------|-------------------------
+```
 ---
 
 ## **Tech Stack**
