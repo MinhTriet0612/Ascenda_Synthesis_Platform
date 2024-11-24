@@ -129,7 +129,7 @@ A simple logger that writes log messages to a file (`./app.log`) with a timestam
 ### Features
 - Logs messages to a log file with the format `[timestamp] [log level] [message]`.
 - Supports two log levels: `INFO` and `ERROR`.
-- Writes logs to `logs/app.log`.
+- Writes logs to `./app.log`.
 - Timestamp is represented as milliseconds since the epoch.
 
 ---
