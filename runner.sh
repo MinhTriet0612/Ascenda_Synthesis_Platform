@@ -19,6 +19,7 @@ if ! command_exists tsc; then
     npm install -g typescript
 fi
 
+
 if [ ! -d "node_modules" ]; then
     echo "Installing project dependencies..."
     npm install
