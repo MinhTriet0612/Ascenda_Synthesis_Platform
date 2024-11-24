@@ -1,30 +1,66 @@
+
+
 [![wakatime](https://wakatime.com/badge/user/018c1be4-f54c-4a1b-9251-889508522a9a/project/e2d707f5-2f37-4d56-b8ba-6bf6b4a7ab36.svg)](https://wakatime.com/@minhtriet06/projects/xnpvwfjalu?start=2024-11-18&end=2024-11-24)
 
+# **Ascenda Synthesis Platform**
 ---
 
-**OOP Design Diagram**: [Lucid Chart Link](https://lucid.app/lucidchart/14a45024-22c9-4a83-a6ac-f402a05bf762/edit?viewport_loc=-2412%2C-879%2C2845%2C1394%2C0_0&invitationId=inv_6045aaab-51b0-4e3a-af0e-2183e8c4eab1)  
-**Progress**: [Notion Link](https://www.notion.so/Assignment-Workflow-1455ee316226801b80f9c973b3a08411?pvs=4)  
+## Table of Contents
+- [1. Project Structure](#project-structure)
+- [2. Features](#features)
+- [3. Architecture](#architecture)
+- [4. Testing](#testing)
+- [5. Custom Logger](#custom-logger)
+- [6. Extensible Code ](#extensible-code)
+- [7. Tech Stack](#tech-stack)
+- [8. Setup Instructions](#setup-instructions)
 
 
-# **Supplier Data Aggregator**
+---
 
 ## **Overview**
-The **Supplier Data Aggregator** is a TypeScript-based application designed to synthesize data from multiple suppliers. It fetches raw data, maps it to a standardized format, and returns a consolidated list of formatted data to the user. The app supports scalability by allowing new suppliers to be easily integrated.
+The **Ascenda Synthesis Platform** is a TypeScript-based application designed to synthesize data from multiple suppliers. It fetches raw data, maps it to a standardized format, and returns a consolidated list of formatted data to the user. The app supports scalability by allowing new suppliers to be easily integrated.
 
 ---
+
+## **Project Structure**
+
+```plaintext
+./src
+├── app.ts                      # Main entry point of the application
+├── context                     # Stores global state
+├── controller
+│   ├── OperationType.ts        # Enum defining operation types
+│   └── SupplierController.ts   # Controller for managing suppliers and operations
+├── factory
+│   └── SupplierFactory.ts      # Factory for creating supplier-specific operations
+├── logger
+│   └── Logger.ts               # Utility for logging messages and errors
+├── mapper                      # Contains class for mapping query data
+├── model                       # Contains domain models
+├── operations
+│   ├── Operation.ts            # Abstract operation class
+│   ├── SupplierOperation.ts    # Base operation class for supplier-related tasks
+│   └── impl                    # Concrete implementations of operations
+├── pipeline
+│   └── Pipeline.ts             # Pipeline for executing operations in sequence
+└── queryDTOs                   # Data transfer objects for enforcing supplier data structure
+./test
+├── controller
+├── factory
+└── mapper
+
+```
 
 ## **Features**
 - Fetch data from multiple suppliers via their URLs.
 - Map supplier-specific raw data into a standardized format.
 - Queue-based operation pipeline for sequential processing.
-- Easy integration for adding new suppliers dynamically.
-- Scalable architecture for future enhancements.
-- Not only fetch data from Hotel Suppliers, but also adapt to other types of suppliers.
+- Easy integration for adding new suppliers and new model types dynamically.
 
 ---
 
 ## **Architecture**
-Inspire by the **Pipeline Pattern**, the application is designed to process operations sequentially in a controlled manner. The **Controller** allocates operations to the corresponding supplier handler based on the URL. Each **Operation** fetches raw data from the assigned supplier, and the **Mapper** maps supplier-specific data into a standardized format for consistent outputs.
 
 ### **Components**
 1. **Controller**:
@@ -33,8 +69,7 @@ Inspire by the **Pipeline Pattern**, the application is designed to process oper
 
 2. **Operation**:
    - Fetches raw data from the assigned supplier.
-   - Multiple suppliers' URLs can share the same operation if they have the same body JSON.
-   
+   - Each operation is unique to a specific supplier.
 
 3. **Mapper**:
    - Maps supplier-specific data into a standardized format for consistent outputs.
@@ -47,37 +82,12 @@ Inspire by the **Pipeline Pattern**, the application is designed to process oper
   Ensures sequential execution of operations in a modular and controlled manner.
 
 ---
-
-## **Tech Stack**
-- **Language**: [TypeScript](https://www.typescriptlang.org/)  
-- **Testing Framework**: [Jest](https://jestjs.io/)
-
----
-## Custom Logger
-A simple logger that writes log messages to a file (`./app.log`) with a timestamp and log level (INFO or ERROR).
-
-### Features
-- Logs messages to a log file with the format `[timestamp] [log level] [message]`.
-- Supports two log levels: `INFO` and `ERROR`.
-- Writes logs to `logs/app.log`.
-- Timestamp is represented as milliseconds since the epoch.
-
-
-### Extensible Code 
-- Scalable architecture for future enhancements.
-- Easy integration for adding new suppliers dynamically.
-- Not only fetch data from Hotel Suppliers, but also adapt to other types of suppliers.
-- Adding Tests for each module to ensure the quality of the code.
-
----
----
-
-## Testing 
+## **Testing**
 ### Overview
-- Jest is used for testing the application,
+- **Jest** is used for testing the application,
 - Primarily focusing on mapper functions to ensure correct data transformation.
-- Limitation: The fetch() method for API calls is not mocked in tests, which may lead to dependency on live API responses. Future improvements will include mocking API calls for better isolation.
-###   Code Coverage
+- **Limitation**: The fetch() method for API calls is not mocked in tests, which may lead to dependency on live API responses.
+### **Code Coverage**
 ```shell 
 ---------------------------|---------|----------|---------|---------|-------------------------
 File                       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s       
@@ -109,6 +119,29 @@ All files                  |   90.71 |    76.07 |   94.28 |   90.44 |
   Pipeline.ts              |     100 |      100 |     100 |     100 |                         
 ---------------------------|---------|----------|---------|---------|-------------------------
 ```
+---
+## Custom Logger
+A simple logger that writes log messages to a file (`./app.log`) with a timestamp and log level (INFO or ERROR).
+
+### Features
+- Logs messages to a log file with the format `[timestamp] [log level] [message]`.
+- Supports two log levels: `INFO` and `ERROR`.
+- Writes logs to `./app.log`.
+- Timestamp is represented as milliseconds since the epoch.
+---
+
+### Extensible Code 
+- Scalable architecture for future enhancements.
+- Easy integration for adding new suppliers dynamically.
+- Not only fetch data from Hotel Suppliers, but also adapt to other types of suppliers.
+- Adding Tests for each module to ensure the quality of the code.
+  
+---
+
+## **Tech Stack**
+- **Language**: [TypeScript](https://www.typescriptlang.org/)  
+- **Testing Framework**: [Jest](https://jestjs.io/)
+
 ---
 
 ## **Setup Instructions**
