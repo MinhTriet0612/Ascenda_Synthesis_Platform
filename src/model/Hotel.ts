@@ -3,19 +3,20 @@ import { ImageStore } from "./ImageStore";
 import { Location } from "./Location";
 
 export class Hotel {
-  id: string;
-  destination_id: number;
-  name: string;
+  id?: string;
+  destination_id?: number;
+  name?: string;
   location: Location;
-  description: string;
+  description?: string;
   amenities: Amentity;
   images: ImageStore;
-  booking_conditions: string[];
+  booking_conditions?: string[];
 
   constructor() {
     this.location = new Location();
     this.amenities = new Amentity();
     this.images = new ImageStore();
+    this.booking_conditions = []
   }
 
   public setId(id: string): void {
@@ -35,6 +36,7 @@ export class Hotel {
       this.location = location;
     }
 
+    // how to make setLat can recieve null value
     this.location.setLat(location.lat);
     this.location.setLng(location.lng);
     this.location.setAddress(location.address);

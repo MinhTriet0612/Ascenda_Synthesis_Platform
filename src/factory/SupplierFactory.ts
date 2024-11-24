@@ -5,7 +5,6 @@ import { PaperFliesOperation } from "../operations/impl/PaperFliesOperation";
 import { PatagoniaOperation } from "../operations/impl/PatagoniaOperation";
 import { Operation } from "../operations/Operation";
 
-
 export class SupplierOperationFactory {
 
   constructor() {

@@ -1,12 +1,13 @@
 
 export class Location {
-  lat: number;
-  lng: number;
-  address: string;
-  city: string;
-  country: string;
+  lat?: number;
+  lng?: number;
+  address?: string;
+  city?: string;
+  country?: string;
 
-  constructor() { }
+  constructor() {
+  }
 
   public setLat(lat: number): void {
     if (!lat) {
