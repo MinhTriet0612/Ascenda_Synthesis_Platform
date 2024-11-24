@@ -1,0 +1,53 @@
+[2024-11-24T09:09:07.853Z] [INFO] Fetching data from https://test-api.com/hotels
+[2024-11-24T09:09:07.862Z] [INFO] Fetching data from https://test-api.com/hotels
+[2024-11-24T09:09:07.862Z] [ERROR] Failed to fetch data from https://test-api.com/hotels
+[2024-11-24T09:32:48.462Z] [INFO] Fetching data from https://test-api.com/hotels
+[2024-11-24T09:32:49.570Z] [ERROR] Failed to fetch data from https://test-api.com/hotels
+[2024-11-24T09:32:59.723Z] [INFO] Fetching data from https://test-api.com/hotels
+[2024-11-24T09:33:00.433Z] [ERROR] Failed to fetch data from https://test-api.com/hotels
+[2024-11-24T09:35:21.644Z] [INFO] Fetching data from https://test-api.com/hotels
+[2024-11-24T09:48:42.436Z] [INFO] Fetching data from https://test-api.com/hotels
+[2024-11-24T09:48:43.249Z] [ERROR] Failed to fetch data from https://test-api.com/hotels
+[2024-11-24T09:53:52.846Z] [INFO] Fetching data from https://test-api.com/hotels
+[2024-11-24T09:53:53.603Z] [ERROR] Failed to fetch data from https://test-api.com/hotels
+[2024-11-24T09:54:17.690Z] [INFO] Fetching data from https://test-api.com/hotels
+[2024-11-24T09:54:18.383Z] [ERROR] Failed to fetch data from https://test-api.com/hotels
+[2024-11-24T09:54:41.584Z] [INFO] Fetching data from https://test-api.com/hotels
+[2024-11-24T09:54:42.243Z] [ERROR] Failed to fetch data from https://test-api.com/hotels
+[2024-11-24T09:55:45.787Z] [INFO] Fetching data from https://test-api.com/hotels
+[2024-11-24T09:55:46.452Z] [ERROR] Failed to fetch data from https://test-api.com/hotels
+[2024-11-24T09:56:38.382Z] [INFO] Fetching data from https://test-api.com/hotels
+[2024-11-24T09:56:39.037Z] [ERROR] Failed to fetch data from https://test-api.com/hotels
+[2024-11-24T09:57:15.346Z] [INFO] Fetching data from https://test-api.com/hotels
+[2024-11-24T09:57:16.045Z] [ERROR] Failed to fetch data from https://test-api.com/hotels
+[2024-11-24T09:57:52.915Z] [INFO] Fetching data from https://test-api.com/hotels
+[2024-11-24T09:57:53.625Z] [ERROR] Failed to fetch data from https://test-api.com/hotels
+[2024-11-24T10:13:47.413Z] [INFO] Fetching data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme
+[2024-11-24T10:13:48.465Z] [INFO] Successfully merged data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme
+[2024-11-24T10:13:48.466Z] [INFO] Fetching data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/paperflies
+[2024-11-24T10:13:49.283Z] [INFO] Successfully merged data from PaperFliesOperation
+[2024-11-24T10:13:49.284Z] [INFO] Fetching data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/patagonia
+[2024-11-24T10:13:49.592Z] [INFO] Successfully merged data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/patagonia
+[2024-11-24T10:27:52.477Z] [INFO] Fetching data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme
+[2024-11-24T10:31:24.223Z] [INFO] Fetching data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme
+[2024-11-24T10:31:38.568Z] [INFO] Fetching data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme
+[2024-11-24T10:33:40.761Z] [INFO] Fetching data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme
+[2024-11-24T10:34:47.076Z] [INFO] Fetching data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme
+[2024-11-24T10:34:53.925Z] [INFO] Fetching data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme
+[2024-11-24T10:34:54.827Z] [INFO] Successfully merged data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme
+[2024-11-24T10:35:14.344Z] [INFO] Fetching data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme
+[2024-11-24T10:35:15.319Z] [INFO] Successfully merged data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme
+[2024-11-24T10:36:05.421Z] [INFO] Fetching data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme
+[2024-11-24T10:36:06.376Z] [INFO] Successfully merged data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme
+[2024-11-24T10:36:06.380Z] [INFO] Fetching data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/paperflies
+[2024-11-24T10:36:07.258Z] [INFO] Successfully merged data from PaperFliesOperation
+[2024-11-24T10:39:58.621Z] [INFO] Fetching data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme
+[2024-11-24T10:39:59.591Z] [INFO] Successfully merged data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme
+[2024-11-24T10:39:59.595Z] [INFO] Fetching data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/paperflies
+[2024-11-24T10:40:00.441Z] [INFO] Successfully merged data from PaperFliesOperation
+[2024-11-24T10:41:42.297Z] [INFO] Fetching data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme
+[2024-11-24T10:41:43.256Z] [INFO] Successfully merged data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme
+[2024-11-24T10:41:43.261Z] [INFO] Fetching data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/paperflies
+[2024-11-24T10:41:44.106Z] [INFO] Successfully merged data from PaperFliesOperation
+[2024-11-24T10:41:44.107Z] [INFO] Fetching data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/patagonia
+[2024-11-24T10:41:44.421Z] [INFO] Successfully merged data from https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/patagonia
