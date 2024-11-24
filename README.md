@@ -79,7 +79,7 @@ npm run coverage
 │   └── impl                    # Concrete implementations of operations
 ├── pipeline
 │   └── Pipeline.ts             # Pipeline for executing operations in sequence
-└── queryDTOs                   # Data transfer objects for enforcing supplier data structure
+└── queryDTOs                   #  Data transfer objects for binding and transfering supplier data structure
 ./test
 ├── controller
 ├── factory
