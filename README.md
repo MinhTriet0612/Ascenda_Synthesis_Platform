@@ -167,11 +167,32 @@ A simple logger that writes log messages to a file (`./app.log`) with a timestam
 
 ---
 
-### Extensible Code 
-- Scalable architecture for future enhancements.
-- Easy integration for adding new suppliers dynamically.
-- Not only fetch data from Hotel Suppliers, but also adapt to other types of suppliers.
-- Adding Tests for each module to ensure the quality of the code.
+## Extensible Code
+
+This project is designed to be highly extensible and reusable, supporting the addition of new operations, models, and data sources without modifying the core pipeline or controller logic.
+
+### Adding New Operations
+1. Use the `addUrlQuery(url: string)` method in the `SupplierController` to add a new operation. The `SupplierOperationFactory` will automatically create and add the appropriate operation based on the provided URL.
+2. The `Pipeline<T>` class allows adding operations for any model (`T`) by implementing the `Operation<T>` interface.
+
+### Adding New Models
+- To extend beyond the **Hotel** model, define a new model (e.g., `Flight`, `Car`) and its associated operations.
+- The `Pipeline<T>` is generic, making it easy to process data for any model as long as compatible operations are implemented.
+
+### Adding New Data Sources
+- The `operationMap` in `SupplierOperationFactory` enables easy integration of new data sources.
+- Simply map the new source's URL to a corresponding `OperationType`, and the app will handle it using the appropriate parsing and processing logic.
+- This mechanism ensures that adding new suppliers or data sources requires minimal changes.
+
+### Reusability
+- The modular design ensures that components like the pipeline, operations, and factories can be reused across different parts of the application or in new projects.
+- The `operationMap` can be extended or adapted for new suppliers with custom parsing logic, making it reusable in different contexts.
+
+### Benefits
+- Operations, models, and data sources can be added without altering the core structure.
+- The pipeline executes operations sequentially, ensuring scalability.
+- The system is flexible and reusable, supporting seamless integration of new models, data sources, and more complex operations with minimal effort.
+
   
 ---
 
