@@ -88,7 +88,6 @@ The **Ascenda Synthesis Platform** is a TypeScript-based application designed to
 - **Pipeline Pattern**:  
   Ensures sequential execution of operations in a modular and controlled manner.
 
-
 ---
 ## **Testing**
 ### **Code Coverage**
@@ -123,6 +122,16 @@ All files                  |   90.71 |    76.07 |   94.28 |   90.44 |
   Pipeline.ts              |     100 |      100 |     100 |     100 |                         
 ---------------------------|---------|----------|---------|---------|-------------------------
 ```
+---
+## Custom Logger
+A simple logger that writes log messages to a file (`./app.log`) with a timestamp and log level (INFO or ERROR).
+
+### Features
+- Logs messages to a log file with the format `[timestamp] [log level] [message]`.
+- Supports two log levels: `INFO` and `ERROR`.
+- Writes logs to `logs/app.log`.
+- Timestamp is represented as milliseconds since the epoch.
+
 ---
 
 ## **Tech Stack**
