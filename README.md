@@ -9,11 +9,7 @@ The **Supplier Data Aggregator** is a TypeScript-based application designed to s
 
 ---
 
----
-
 ## **Project Structure**
-
-Here’s the directory tree of the project:
 
 ```plaintext
 ./src
