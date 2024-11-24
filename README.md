@@ -6,14 +6,14 @@
 ---
 
 ## Table of Contents
-- [1. Project Structure](#project-structure)
-- [2. Features](#features)
-- [3. Architecture](#architecture)
-- [4. Testing](#testing)
-- [5. Custom Logger](#custom-logger)
-- [6. Extensible Code ](#extensible-code)
-- [7. Tech Stack](#tech-stack)
-- [8. Setup Instructions](#setup-instructions)
+- [1. Setup Instructions](#setup-instructions)
+- [2. Project Structure](#project-structure)
+- [3. Features](#features)
+- [4. Architecture](#architecture)
+- [5. Testing](#testing)
+- [6. Custom Logger](#custom-logger)
+- [7. Extensible Code ](#extensible-code)
+- [8. Tech Stack](#tech-stack)
 
 
 ---
@@ -21,6 +21,40 @@
 ## **Overview**
 The **Ascenda Synthesis Platform** is a TypeScript-based application designed to synthesize data from multiple suppliers. It fetches raw data, maps it to a standardized format, and returns a consolidated list of formatted data to the user. The app supports scalability by allowing new suppliers to be easily integrated.
 
+---
+## **Setup Instructions**
+
+### **1. Prerequisites**
+Ensure you have the following installed:
+- [Node.js](https://nodejs.org/) (v20.16.0 or higher )
+- [npm](https://www.npmjs.com/)
+### **2. Clone the Repository**
+```shell
+git clone git@github.com:MinhTriet0612/ParseRawDataAssignment.git
+```
+### **3. Install Dependencies**
+```shell
+cd ParseRawDataAssignment
+npm install
+```
+### **4. Run the Application**
+```shell
+npm start $1 $2 # $1: Hotel ID , $2: Destination ID
+```
+or
+
+```shell
+./runner.sh $1 $2 # $1: Hotel ID , $2: Destination ID
+```
+
+### **5. Run Tests**
+```shell
+npm test
+```
+### **6. Run Code Coverage**
+```shell
+npm run coverage
+```
 ---
 
 ## **Project Structure**
@@ -146,37 +180,4 @@ A simple logger that writes log messages to a file (`./app.log`) with a timestam
 
 ---
 
-## **Setup Instructions**
 
-### **1. Prerequisites**
-Ensure you have the following installed:
-- [Node.js](https://nodejs.org/) (v20.16.0 or higher )
-- [npm](https://www.npmjs.com/)
-### **2. Clone the Repository**
-```shell
-git clone git@github.com:MinhTriet0612/ParseRawDataAssignment.git
-```
-### **3. Install Dependencies**
-```shell
-cd ParseRawDataAssignment
-npm install
-```
-### **4. Run the Application**
-```shell
-npm start $1 $2 # $1: Hotel ID , $2: Destination ID
-```
-or
-
-```shell
-./runner.sh $1 $2 # $1: Hotel ID , $2: Destination ID
-```
-
-### **5. Run Tests**
-```shell
-npm test
-```
-### **6. Run Code Coverage**
-```shell
-npm run coverage
-```
----
