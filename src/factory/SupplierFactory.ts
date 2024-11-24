@@ -1,5 +1,5 @@
 import { HotelStore } from "../context/HotelStore";
-import { OperationType } from "../controller/constraints/OperationType";
+import { OperationType } from "../controller/OperationType";
 import { AcmeOperation } from "../operations/impl/AcmeOperation";
 import { PaperFliesOperation } from "../operations/impl/PaperFliesOperation";
 import { PatagoniaOperation } from "../operations/impl/PatagoniaOperation";
