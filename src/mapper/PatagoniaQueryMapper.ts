@@ -1,29 +1,12 @@
-import { Amentity } from "../../model/Amentity";
-import { Hotel } from "../../model/Hotel";
-import { ImageStore } from "../../model/ImageStore";
-import { Location } from "../../model/Location";
-import { PatagoniaQueryDTO } from "../../queryDTOs/PatagoniaQueryDTO";
-import { SupplierQueryMapper } from "../SupplierQueryMapper";
+import { Amentity } from "../model/Amentity";
+import { Hotel } from "../model/Hotel";
+import { ImageStore } from "../model/ImageStore";
+import { Location } from "../model/Location";
+import { PatagoniaQueryDTO } from "../queryDTOs/PatagoniaQueryDTO";
 
-export class PatagoniaQueryMapper implements SupplierQueryMapper {
-  private static instance: PatagoniaQueryMapper;
+export class PatagoniaQueryMapper {
 
-  private constructor() {
-    if (PatagoniaQueryMapper?.instance) {
-      return PatagoniaQueryMapper.instance;
-    }
-    PatagoniaQueryMapper.instance = this;
-  }
-
-  public static getInstance(): PatagoniaQueryMapper {
-    if (PatagoniaQueryMapper?.instance) {
-      return PatagoniaQueryMapper.instance;
-    }
-    PatagoniaQueryMapper.instance = new PatagoniaQueryMapper();
-    return PatagoniaQueryMapper.instance;
-  }
-
-  public mapToEntity(dto: PatagoniaQueryDTO): Hotel {
+  public static mapToEntity(dto: PatagoniaQueryDTO): Hotel {
     const hotel = new Hotel();
     const location: Location = new Location();
     const amenities = new Amentity();
