@@ -92,9 +92,9 @@ The **Ascenda Synthesis Platform** is a TypeScript-based application designed to
 ---
 ## **Testing**
 ### Overview
-- Jest is used for testing the application,
+- **Jest** is used for testing the application,
 - Primarily focusing on mapper functions to ensure correct data transformation.
-- Limitation: The fetch() method for API calls is not mocked in tests, which may lead to dependency on live API responses.
+- **Limitation**: The fetch() method for API calls is not mocked in tests, which may lead to dependency on live API responses.
 ### **Code Coverage**
 ```shell 
 ---------------------------|---------|----------|---------|---------|-------------------------
