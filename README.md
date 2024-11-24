@@ -131,7 +131,14 @@ A simple logger that writes log messages to a file (`./app.log`) with a timestam
 - Supports two log levels: `INFO` and `ERROR`.
 - Writes logs to `./app.log`.
 - Timestamp is represented as milliseconds since the epoch.
+---
 
+### Extensible Code 
+- Scalable architecture for future enhancements.
+- Easy integration for adding new suppliers dynamically.
+- Not only fetch data from Hotel Suppliers, but also adapt to other types of suppliers.
+- Adding Tests for each module to ensure the quality of the code.
+  
 ---
 
 ## **Tech Stack**
