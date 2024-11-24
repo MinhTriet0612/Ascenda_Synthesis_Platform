@@ -3,24 +3,59 @@
 [![wakatime](https://wakatime.com/badge/user/018c1be4-f54c-4a1b-9251-889508522a9a/project/e2d707f5-2f37-4d56-b8ba-6bf6b4a7ab36.svg)](https://wakatime.com/@minhtriet06/projects/xnpvwfjalu?start=2024-11-18&end=2024-11-24)
 
 # **Ascenda Synthesis Platform**
+
+##  **Overview**
+ The **Ascenda Synthesis Platform** is a TypeScript-based application designed to synthesize data from multiple suppliers. It fetches raw data, maps it to a standardized format, and returns a consolidated list of formatted data to the user. The app supports scalability by allowing new suppliers to be easily integrated.
+
 ---
 
 ## Table of Contents
-- [1. Project Structure](#project-structure)
-- [2. Features](#features)
-- [3. Architecture](#architecture)
-- [4. Testing](#testing)
-- [5. Custom Logger](#custom-logger)
-- [6. Extensible Code ](#extensible-code)
-- [7. Tech Stack](#tech-stack)
-- [8. Setup Instructions](#setup-instructions)
+- [1. Setup Instructions](#setup-instructions)
+- [2. Project Structure](#project-structure)
+- [3. Features](#features)
+- [4. Architecture](#architecture)
+- [5. Testing](#testing)
+- [6. Custom Logger](#custom-logger)
+- [7. Extensible Code ](#extensible-code)
+- [8. Tech Stack](#tech-stack)
+
+
 
 
 ---
+## **Setup Instructions**
 
-## **Overview**
-The **Ascenda Synthesis Platform** is a TypeScript-based application designed to synthesize data from multiple suppliers. It fetches raw data, maps it to a standardized format, and returns a consolidated list of formatted data to the user. The app supports scalability by allowing new suppliers to be easily integrated.
+### **1. Prerequisites**
+Ensure you have the following installed:
+- [Node.js](https://nodejs.org/) (v20.16.0 or higher )
+- [npm](https://www.npmjs.com/)
+### **2. Clone the Repository**
+```shell
+git clone git@github.com:MinhTriet0612/ParseRawDataAssignment.git
+```
+### **3. Install Dependencies**
+```shell
+cd ParseRawDataAssignment
+npm install
+```
+### **4. Run the Application**
+```shell
+npm start $1 $2 # $1: Hotel ID , $2: Destination ID
+```
+or
 
+```shell
+./runner.sh $1 $2 # $1: Hotel ID , $2: Destination ID
+```
+
+### **5. Run Tests**
+```shell
+npm test
+```
+### **6. Run Code Coverage**
+```shell
+npm run coverage
+```
 ---
 
 ## **Project Structure**
@@ -128,6 +163,8 @@ A simple logger that writes log messages to a file (`./app.log`) with a timestam
 - Supports two log levels: `INFO` and `ERROR`.
 - Writes logs to `./app.log`.
 - Timestamp is represented as milliseconds since the epoch.
+- Example: [2024-11-24T09:54:18.383Z] [ERROR] Failed to fetch data from https://test-api.com/hotels
+
 ---
 
 ### Extensible Code 
@@ -144,37 +181,4 @@ A simple logger that writes log messages to a file (`./app.log`) with a timestam
 
 ---
 
-## **Setup Instructions**
 
-### **1. Prerequisites**
-Ensure you have the following installed:
-- [Node.js](https://nodejs.org/) (v20.16.0 or higher )
-- [npm](https://www.npmjs.com/)
-### **2. Clone the Repository**
-```shell
-git clone git@github.com:MinhTriet0612/ParseRawDataAssignment.git
-```
-### **3. Install Dependencies**
-```shell
-cd ParseRawDataAssignment
-npm install
-```
-### **4. Run the Application**
-```shell
-npm start $1 $2 # $1: Hotel ID , $2: Destination ID
-```
-or
-
-```shell
-./runner.sh $1 $2 # $1: Hotel ID , $2: Destination ID
-```
-
-### **5. Run Tests**
-```shell
-npm test
-```
-### **6. Run Code Coverage**
-```shell
-npm run coverage
-```
----
