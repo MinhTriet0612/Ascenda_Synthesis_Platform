@@ -86,6 +86,14 @@ describe("PaperFliesQueryMapper", () => {
     expect(hotel.booking_conditions).toEqual(
       dto.booking_conditions.map((ele) => ele.trim())
     );
+
+
+
+    const currBookingConditions = hotel.booking_conditions;
+
+    hotel.setBookingConditions(["Free cancellation", "Pay at property"]);
+
+    expect(hotel.booking_conditions).toEqual(currBookingConditions);
   });
 
   it("should handle missing or undefined properties gracefully", () => {
@@ -117,5 +125,10 @@ describe("PaperFliesQueryMapper", () => {
     expect(images).toEqual(new ImageStore());
 
     expect(hotel.booking_conditions).toEqual([]);
+
+
+    hotel.setImages(undefined);
+    expect(hotel.images).toBeTruthy();
+
   });
 });

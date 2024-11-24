@@ -1,8 +1,8 @@
-import { OperationType } from "../src/controller/OperationType";
-import { SupplierOperationFactory } from "../src/factory/SupplierFactory";
-import { AcmeOperation } from "../src/operations/impl/AcmeOperation";
-import { PaperFliesOperation } from "../src/operations/impl/PaperFliesOperation";
-import { PatagoniaOperation } from "../src/operations/impl/PatagoniaOperation";
+import { OperationType } from "../../src/controller/OperationType";
+import { SupplierOperationFactory } from "../../src/factory/SupplierFactory";
+import { AcmeOperation } from "../../src/operations/impl/AcmeOperation";
+import { PaperFliesOperation } from "../../src/operations/impl/PaperFliesOperation";
+import { PatagoniaOperation } from "../../src/operations/impl/PatagoniaOperation";
 
 describe('SupplierOperationFactory', () => {
   it('should return AcmeOperation for ACME URL', () => {

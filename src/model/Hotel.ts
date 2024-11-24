@@ -33,7 +33,7 @@ export class Hotel {
 
   public setLocation(location: Location): void {
     if (!location) {
-      this.location = location;
+      return;
     }
 
     // how to make setLat can recieve null value
@@ -77,7 +77,7 @@ export class Hotel {
   }
 
   public setBookingConditions(booking_conditions: string[]): void {
-    if (this?.booking_conditions && this?.booking_conditions.length !== 0) {
+    if (this?.booking_conditions.length !== 0) {
       return;
     }
 
