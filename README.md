@@ -179,6 +179,4 @@ A simple logger that writes log messages to a file (`./app.log`) with a timestam
 - **Language**: [TypeScript](https://www.typescriptlang.org/)  
 - **Testing Framework**: [Jest](https://jestjs.io/)
 
----
-
 
