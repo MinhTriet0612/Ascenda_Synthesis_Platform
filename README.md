@@ -13,7 +13,7 @@ The **Supplier Data Aggregator** is a TypeScript-based application designed to s
 - Fetch data from multiple suppliers via their URLs.
 - Map supplier-specific raw data into a standardized format.
 - Queue-based operation pipeline for sequential processing.
-- Easy integration for adding new suppliers dynamically.
+- Easy integration for adding new suppliers and new model types dynamically.
 
 ---
 
