@@ -128,6 +128,8 @@ A simple logger that writes log messages to a file (`./app.log`) with a timestam
 - Supports two log levels: `INFO` and `ERROR`.
 - Writes logs to `./app.log`.
 - Timestamp is represented as milliseconds since the epoch.
+- Example: [2024-11-24T09:54:18.383Z] [ERROR] Failed to fetch data from https://test-api.com/hotels
+
 ---
 
 ### Extensible Code 
