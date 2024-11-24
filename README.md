@@ -3,6 +3,21 @@
 [![wakatime](https://wakatime.com/badge/user/018c1be4-f54c-4a1b-9251-889508522a9a/project/e2d707f5-2f37-4d56-b8ba-6bf6b4a7ab36.svg)](https://wakatime.com/@minhtriet06/projects/xnpvwfjalu?start=2024-11-18&end=2024-11-24)
 
 # **Ascenda Synthesis Platform**
+---
+
+## Table of Contents
+- [1. Project Structure](#project-structure)
+- [2. Features](#features)
+- [3. Architecture](#architecture)
+- [4. Design Pattern](#design-pattern)
+- [5. Testing](#testing)
+- [6. Custom Logger](#custom-logger)
+- [6. Extensible Code ](#extensible-code)
+- [7. Tech Stack](#tech-stack)
+- [7. Setup Instructions](#setup-instructions)
+
+
+---
 
 ## **Overview**
 The **Ascenda Synthesis Platform** is a TypeScript-based application designed to synthesize data from multiple suppliers. It fetches raw data, maps it to a standardized format, and returns a consolidated list of formatted data to the user. The app supports scalability by allowing new suppliers to be easily integrated.
