@@ -135,7 +135,33 @@ All files                  |   90.71 |    76.07 |   94.28 |   90.44 |
 
 ### **1. Prerequisites**
 Ensure you have the following installed:
-- [Node.js](https://nodejs.org/) (v14 or higher)
-- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
-
+- [Node.js](https://nodejs.org/) (v20.16.0 or higher )
+- [npm](https://www.npmjs.com/)
 ### **2. Clone the Repository**
+```shell
+git clone git@github.com:MinhTriet0612/ParseRawDataAssignment.git
+```
+### **3. Install Dependencies**
+```shell
+cd ParseRawDataAssignment
+npm install
+```
+### **4. Run the Application**
+```shell
+npm start $1 $2 # $1: Hotel ID , $2: Destination ID
+```
+or
+
+```shell
+./runner.sh $1 $2 # $1: Hotel ID , $2: Destination ID
+```
+
+### **5. Run Tests**
+```shell
+npm test
+```
+### **6. Run Code Coverage**
+```shell
+npm run coverage
+```
+---
