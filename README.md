@@ -9,12 +9,11 @@
 - [1. Project Structure](#project-structure)
 - [2. Features](#features)
 - [3. Architecture](#architecture)
-- [4. Design Pattern](#design-pattern)
-- [5. Testing](#testing)
-- [6. Custom Logger](#custom-logger)
+- [4. Testing](#testing)
+- [5. Custom Logger](#custom-logger)
 - [6. Extensible Code ](#extensible-code)
 - [7. Tech Stack](#tech-stack)
-- [7. Setup Instructions](#setup-instructions)
+- [8. Setup Instructions](#setup-instructions)
 
 
 ---
