@@ -8,7 +8,7 @@ export class PaperFliesQueryMapper {
 
   public static mapToEntity(dto: PaperFliesQueryDTO): Hotel {
     const hotel = new Hotel();
-    const booking_conditions = dto?.booking_conditions.map(ele => ele.trim());
+    const booking_conditions = dto?.booking_conditions ? dto.booking_conditions.map(ele => ele.trim()) : [];
     const location: Location = new Location();
     const amenities = new Amentity();
     const images = new ImageStore();

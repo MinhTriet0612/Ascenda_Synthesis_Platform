@@ -10,23 +10,27 @@ export class Location {
   }
 
   public setLat(lat: number): void {
-    if (!lat) {
+    if (this?.lat) {
       return;
     }
 
-    if (!this?.lat) {
-      this.lat = lat;
+    if (!lat || lat < -90 || lat > 90) {
+      return;
     }
+
+    this.lat = lat;
   }
 
   public setLng(lng: number): void {
-    if (!lng) {
+    if (this?.lng) {
       return;
     }
 
-    if (!this?.lng) {
-      this.lng = lng;
+    if (!lng || lng < -180 || lng > 180) {
+      return;
     }
+
+    this.lng = lng;
   }
 
   public setAddress(address: string): void {

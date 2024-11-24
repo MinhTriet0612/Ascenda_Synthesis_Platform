@@ -1,6 +1,6 @@
 import { HotelStore } from "../../context/HotelStore";
 import { Logger } from "../../logger/Logger";
-import { PaperFliesQueryMapper } from "../../mapper/impl/PaperFliesQueryMapper";
+import { PaperFliesQueryMapper } from "../../mapper/PaperFliesQueryMapper";
 import { Hotel } from "../../model/Hotel";
 import { PaperFliesQueryDTO } from "../../queryDTOs/PaperFliesQueryDTO";
 import { Operation } from "../Operation";
@@ -14,7 +14,7 @@ export class PaperFliesOperation extends SupplierOperation implements Operation<
 
   public async execute(hotelStore: HotelStore) {
     const rawData: PaperFliesQueryDTO[] = await super.fetchHotelData();
-    const hotelsTmp: Hotel[] = rawData.map((dto: PaperFliesQueryDTO) => PaperFliesQueryMapper.getInstance().mapToEntity(dto));
+    const hotelsTmp: Hotel[] = rawData.map((dto: PaperFliesQueryDTO) => PaperFliesQueryMapper.mapToEntity(dto));
 
     this.mergeData(hotelsTmp, hotelStore);
   }
