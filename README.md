@@ -9,6 +9,60 @@ The **Supplier Data Aggregator** is a TypeScript-based application designed to s
 
 ---
 
+---
+
+## **Project Structure**
+
+Here’s the directory tree of the project:
+
+```plaintext
+./src
+├── app.ts                      # Main entry point of the application
+├── context
+│   └── HotelStore.ts           # Context for managing hotel-related data
+├── controller
+│   ├── OperationType.ts        # Enum for defining operation types
+│   └── SupplierController.ts   # Controller to manage suppliers and operations
+├── factory
+│   └── SupplierFactory.ts      # Factory for creating supplier-specific operations
+├── logger
+│   └── Logger.ts               # Utility for logging messages and errors
+├── mapper
+│   ├── AcmeQueryMapper.ts      # Mapper for Acme supplier queries
+│   ├── PaperFliesQueryMapper.ts # Mapper for PaperFlies supplier queries
+│   ├── PatagoniaQueryMapper.ts # Mapper for Patagonia supplier queries
+│   └── SupplierQueryMapper.ts  # Base mapper for supplier queries
+├── model
+│   ├── Amentity.ts             # Model representing hotel amenities
+│   ├── Hotel.ts                # Model representing hotel data
+│   ├── ImageStore.ts           # Model for managing hotel images
+│   └── Location.ts             # Model for hotel location data
+├── operations
+│   ├── Operation.ts            # Abstract operation class
+│   ├── SupplierOperation.ts    # Base operation class for suppliers
+│   └── impl
+│       ├── AcmeOperation.ts    # Implementation of operations for Acme supplier
+│       ├── PaperFliesOperation.ts # Implementation for PaperFlies supplier
+│       └── PatagoniaOperation.ts # Implementation for Patagonia supplier
+├── pipeline
+│   └── Pipeline.ts             # Pipeline for sequential operation execution
+└── queryDTOs
+    ├── AcmeQueryDTO.ts         # Data Transfer Object (DTO) for Acme supplier
+    ├── PaperFliesQueryDTO.ts   # DTO for PaperFlies supplier
+    ├── PatagoniaQueryDTO.ts    # DTO for Patagonia supplier
+    └── SupplierQueryDTO.ts     # Base DTO for suppliers
+./test
+├── controller
+│   └── SupplierController.test.ts
+├── factory
+│   └── SupplierOperationFactory.test.ts
+└── mapper
+    ├── AcmeQueryMapper.test.ts
+    ├── PaperFliesQueryMapper.test.ts
+    └── PatagoniaQueryMapper.test.ts
+
+```
+
 ## **Features**
 - Fetch data from multiple suppliers via their URLs.
 - Map supplier-specific raw data into a standardized format.
